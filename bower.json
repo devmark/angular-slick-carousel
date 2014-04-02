@@ -1,0 +1,13 @@
+{
+  "name": "angular-slick-carousel",
+  "version": "0.1.0",
+  "main": "slick.js",
+  "ignore": [
+    "src",
+    "example"
+  ],
+  "dependencies": {
+    "slick-carousel": "~1.3.1",
+    "angular": ">=1.2.0"
+  }
+}
