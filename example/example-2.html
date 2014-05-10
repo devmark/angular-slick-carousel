@@ -1,0 +1,39 @@
+<html ng-app="slickExampleApp">
+<head>
+
+    <link rel="stylesheet" href="vendor/slick/slick.css">
+    <link rel="stylesheet" href="vendor/css/style.css">
+
+</head>
+<body ng-controller="SlickCtrl">
+<span>
+    <button ng-click="slickHandle.slickGoTo(2)">slickGoTo(2)</button>
+    <button ng-click="slickHandle.slickPrev()">slickPrev()</button>
+    <button ng-click="slickHandle.slickNext()">slickNext()</button>
+    <button ng-click='slickHandle.slickAdd("<div>New</div>")'>slickAdd()</button>
+    <button ng-click='slickHandle.slickRemove(3)'>slickRemove(3)</button>
+    <button ng-click='slickHandle.slickPlay()'>slickPlay()</button>
+    <button ng-click='slickHandle.slickPause()'>slickPause()</button>
+
+  </span>
+<section id="features" class="blue">
+    <div class="content">
+        <hr>
+        <slick ng-transclude settings="slickConfig" control="slickHandle">
+            <div class="multiple" ng-repeat="m in media">
+                <img ng-if="isImage(m)" ng-src="{{m.src}}" />
+            </div>
+        </slick>
+        </hr>
+    </div>
+</section>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+<script src="vendor/slick/slick.js"></script>
+<script src="angular-slick-carousel.js"></script>
+<script src="example-2.js"></script>
+
+</body>
+
+</html>

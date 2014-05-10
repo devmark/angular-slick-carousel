@@ -1,6 +1,6 @@
 {
   "name": "angular-slick-carousel",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Angular directive for slick-carousel",
   "main": "Gruntfile.js",
   "directories": {

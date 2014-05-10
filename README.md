@@ -3,6 +3,16 @@ angular-slick-carousel
 
 Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 
+Release: 1.0
+------------
+
+1. **[BC-BREAK]** You must now use `ng-transclude` when including this directive.
+2. You can now use JS to specify a variety of sources in a media array, and later use `ng-repeat` to iterate inside the
+directive contents. See [example2](https://github.com/kbdaitch/angular-slick-carousel/blob/master/example/example-2.html).
+3. There is an additional `on-directive-init` attribute available now. Use this to use the handle object to do something on
+directive init. This is different from the underlying `slick.js` `onInit` in that the handle object is now ready to use
+(with all the setup to call underlying `slick.js` calls).
+
 Usage
 -----
 

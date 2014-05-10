@@ -4,7 +4,7 @@
 
   angular.module('bardo.directives', []);
 
-  angular.module('bardo.directives').directive('slick', function() {
+  angular.module('bardo.directives').directive('slick', function($timeout) {
     var SLICK_FUNCTION_WHITELIST, SLICK_OPTION_WHITELIST, isEmpty;
     SLICK_OPTION_WHITELIST = ['accessiblity', 'autoplay', 'autoplaySpeed', 'arrows', 'cssEase', 'dots', 'draggable', 'fade', 'easing', 'infinite', 'onBeforeChange', 'onAfterChange', 'pauseOnHover', 'responsive', 'slide', 'slidesToShow', 'slidesToScroll', 'speed', 'swipe', 'touchMove', 'touchThreshold', 'vertical'];
     SLICK_FUNCTION_WHITELIST = ['slickGoTo', 'slickNext', 'slickPrev', 'slickPause', 'slickPlay', 'slickAdd', 'slickRemove', 'slickFilter', 'slickUnfilter', 'unslick'];
@@ -24,29 +24,35 @@
     return {
       scope: {
         settings: '=',
-        control: '='
+        control: '=',
+        onDirectiveInit: '&'
       },
       restrict: 'AE',
-      require: '?ngModel',
+      transclude: true,
       terminal: true,
       link: function(scope, element, attr, ngModel) {
-        var options, slick;
-        element.addClass('bardo-slick');
-        options = scope.settings || {};
-        angular.forEach(attr, function(value, key) {
-          if (__indexOf.call(SLICK_OPTION_WHITELIST, key) >= 0) {
-            return options[key] = scope.$eval(value);
-          }
-        });
-        slick = element.slick(options);
-        scope.internalControl = scope.control || {};
-        SLICK_FUNCTION_WHITELIST.forEach(function(value) {
-          scope.internalControl[value] = function() {
-            slick[value].apply(slick, arguments);
-          };
-        });
+        $timeout((function() {
+          var options, slick;
+          element.addClass('bardo-slick');
+          options = scope.settings || {};
+          angular.forEach(attr, function(value, key) {
+            if (__indexOf.call(SLICK_OPTION_WHITELIST, key) >= 0) {
+              return options[key] = scope.$eval(value);
+            }
+          });
+          slick = element.slick(options);
+          scope.internalControl = scope.control || {};
+          SLICK_FUNCTION_WHITELIST.forEach(function(value) {
+            scope.internalControl[value] = function() {
+              slick[value].apply(slick, arguments);
+            };
+          });
+          scope.onDirectiveInit();
+        }), 500);
       }
     };
   });
 
 }).call(this);
+
+//# sourceMappingURL=slick.map

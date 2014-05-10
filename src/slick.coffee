@@ -1,6 +1,6 @@
 angular.module('bardo.directives', [])
 
-angular.module('bardo.directives').directive 'slick', ->
+angular.module('bardo.directives').directive 'slick', ($timeout) ->
 
   # Whitelist of options that will be parsed from the element's attributes and passed into slick
   SLICK_OPTION_WHITELIST = [
@@ -52,30 +52,37 @@ angular.module('bardo.directives').directive 'slick', ->
   scope: {
     settings: '='
     control: '='
+    onDirectiveInit: '&'
   }
   restrict: 'AE'
-  require: '?ngModel'
+  transclude: true
   terminal: true
   link: (scope, element, attr, ngModel) ->
-    element.addClass('bardo-slick')
+    $timeout ( ->
+      element.addClass('bardo-slick')
 
-    # Take a hash of options from the chosen directive
-    options = scope.settings or {}
+      # Take a hash of options from the chosen directive
+      options = scope.settings or {}
 
-    # Options defined as attributes take precedence
-    angular.forEach attr, (value, key) ->
-      options[key] = scope.$eval(value) if key in SLICK_OPTION_WHITELIST
+      # Options defined as attributes take precedence
+      angular.forEach attr, (value, key) ->
+        options[key] = scope.$eval(value) if key in SLICK_OPTION_WHITELIST
 
-    # Call slick to initiate carousel
-    slick = element.slick(options)
+      # Call slick to initiate carousel
+      slick = element.slick(options)
 
-    # Link slick functions with bi-directional control binding, if any
-    scope.internalControl = scope.control || {}
-    SLICK_FUNCTION_WHITELIST.forEach (value) ->
-      # Delegate to underlying slick function with context set to element
-      scope.internalControl[value] = ->
-        slick[value].apply(slick, arguments)
+      # Link slick functions with bi-directional control binding, if any
+      scope.internalControl = scope.control || {}
+      SLICK_FUNCTION_WHITELIST.forEach (value) ->
+        # Delegate to underlying slick function with context set to element
+        scope.internalControl[value] = ->
+          slick[value].apply(slick, arguments)
+          return
         return
+
+      scope.onDirectiveInit()
       return
+    ),
+    500
 
     return
