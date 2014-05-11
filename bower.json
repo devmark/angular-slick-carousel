@@ -1,6 +1,6 @@
 {
   "name": "angular-slick-carousel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/slick.js",
   "ignore": [
     "src",
@@ -10,7 +10,10 @@
     "bower_components",
     "app/bower_components",
     "test",
-    "tests"
+    "tests",
+    "Gruntfile.js",
+    "README.md",
+    "package.json"
   ],
   "dependencies": {
     "slick-carousel": "~1.3.1",
