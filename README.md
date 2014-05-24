@@ -74,3 +74,5 @@ Demo
 1. Look at the [example](https://github.com/kbdaitch/angular-slick-carousel/tree/master/example) in this repo for full usage.
 2. Running examples: [hardcoded-assets](http://bardo.io/asset/demo/angular-slick-carousel/example-1.html) and [ng-repeated-assets](http://bardo.io/asset/demo/angular-slick-carousel/example-2.html).
 3. Or, clone the repo and run a simple HTTP server in the example directory.
+
+[![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/kbdaitch/)
