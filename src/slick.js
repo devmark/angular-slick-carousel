@@ -4,7 +4,7 @@
 
   angular.module('bardo.directives', []);
 
-  angular.module('bardo.directives').directive('slick', function($timeout) {
+  angular.module('bardo.directives').directive('slick', ['$timeout', function($timeout) {
     var SLICK_FUNCTION_WHITELIST, SLICK_OPTION_WHITELIST, isEmpty;
     SLICK_OPTION_WHITELIST = ['accessiblity', 'autoplay', 'autoplaySpeed', 'arrows', 'cssEase', 'dots', 'draggable', 'fade', 'easing', 'infinite', 'onBeforeChange', 'onAfterChange', 'pauseOnHover', 'responsive', 'slide', 'slidesToShow', 'slidesToScroll', 'speed', 'swipe', 'touchMove', 'touchThreshold', 'vertical'];
     SLICK_FUNCTION_WHITELIST = ['slickGoTo', 'slickNext', 'slickPrev', 'slickPause', 'slickPlay', 'slickAdd', 'slickRemove', 'slickFilter', 'slickUnfilter', 'unslick'];
@@ -51,7 +51,7 @@
         }), 500);
       }
     };
-  });
+  }]);
 
 }).call(this);
 
