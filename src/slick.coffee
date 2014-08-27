@@ -1,6 +1,6 @@
 angular.module('bardo.directives', [])
 
-angular.module('bardo.directives').directive 'slick', ($timeout) ->
+angular.module('bardo.directives').directive 'slick', ['$timeout', ($timeout) ->
 
   # Whitelist of options that will be parsed from the element's attributes and passed into slick
   SLICK_OPTION_WHITELIST = [
@@ -86,3 +86,5 @@ angular.module('bardo.directives').directive 'slick', ($timeout) ->
     500
 
     return
+  
+  ]
