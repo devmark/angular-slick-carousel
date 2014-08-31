@@ -19,10 +19,7 @@
 <section id="features" class="blue">
     <div class="content">
         <hr>
-        <slick ng-transclude settings="slickConfig" control="slickHandle">
-            <div class="multiple" ng-repeat="m in media">
-                <img ng-if="isImage(m)" ng-src="{{m.src}}" />
-            </div>
+        <slick settings="slickConfig" control="slickHandle" media="media" on-directive-init="onDirectiveInit()" is-image="isImage(media)" is-video="isVideo(media)">
         </slick>
         </hr>
     </div>
@@ -31,8 +28,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
 <script src="vendor/slick/slick.js"></script>
-<script src="angular-slick-carousel.js"></script>
-<script src="example-2.js"></script>
+<script src="angular-slick-carousel/slick.js"></script>
+<script src="app.js"></script>
 
 </body>
 

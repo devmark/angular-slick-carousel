@@ -3,13 +3,18 @@ angular-slick-carousel
 
 Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 
-Release: 1.0
+Release: 2.0
 ------------
-
-1. **[BC-BREAK]** You must now use `ng-transclude` when including this directive.
-2. You can now use JS to specify a variety of sources in a media array, and later use `ng-repeat` to iterate inside the
-directive contents. See [example2](https://github.com/kbdaitch/angular-slick-carousel/blob/master/example/example-2.html).
-3. There is an additional `on-directive-init` attribute available now. Use this to use the handle object to do something on
+1. Singlemost improvement which triggered the development of this release: the `$timeout` in v1.0
+was working but arbitrary. We now register a simple `onFinishRender` directive which
+allows us to postpone slickification until `ng-repeat` has finished execution.
+2. **[BC-BREAK]** The directive is no longer based on a transclude functionality. You can either use the 2.0
+ directive with the provided template or use your own (with [slick-no-tpls.js](dist/slick-no-tpls.js)). The two functions `isImage` and `isVideo` on
+ the directive's scope are provided for use in the template, and are overridable.
+3. **[BC-BREAK]** The directive no longer supports statically provided image assets out-of-the-box.
+The dynamic usecase is what it tries to solve optimally.
+4. You can now use JS to specify a variety of sources in the `media` array. See [example](https://github.com/kbdaitch/angular-slick-carousel/blob/master/example/index.html).
+5. There is an additional `on-directive-init` attribute available now. Use this to use the handle object to do something on
 directive init. This is different from the underlying `slick.js` `onInit` in that the handle object is now ready to use
 (with all the setup to call underlying `slick.js` calls).
 
@@ -21,7 +26,12 @@ an angular directive. It can be specified in your HTML
 as either a `<div>` attribute or a `<slick>` element.
 
 ```html
-<slick settings="scoped-settings" control="scoped-control-handle">
+<slick settings="scoped-settings"
+  control="scoped-control-handle"
+  media="media" 
+  on-directive-init="onDirectiveInit()"
+  is-image="isImage(media)" 
+  is-video="isVideo(media)>
 </slick>
 ```
 
@@ -72,7 +82,7 @@ Demo
 ----
 
 1. Look at the [example](https://github.com/kbdaitch/angular-slick-carousel/tree/master/example) in this repo for full usage.
-2. Running examples: [hardcoded-assets](http://bardo.io/angular-slick-carousel/app/example-1.html) and [ng-repeated-assets](http://bardo.io/angular-slick-carousel/app/example-2.html).
+2. Running examples: [ng-repeated by the directive](http://bardo.io/angular-slick-carousel/app/index.html).
 3. Or, clone the repo and run a simple HTTP server in the example directory.
 
 [![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/kbdaitch/)

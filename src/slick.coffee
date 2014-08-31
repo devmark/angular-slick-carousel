@@ -1,6 +1,21 @@
-angular.module('bardo.directives', [])
+module = angular.module('bardo.directives', [])
 
-angular.module('bardo.directives').directive 'slick', ['$timeout', ($timeout) ->
+module.directive 'onFinishRender', ->
+
+  restrict: 'A'
+  link: (scope, element, attr) ->
+    if (scope.$last is true)
+      scope.$evalAsync(attr.onFinishRender);
+
+module.directive 'slick', ['$timeout', '$templateCache', ($timeout, $templateCache) ->
+
+  $templateCache.put 'angular-slick-carousel/directive.html',
+    """
+      <div class="multiple" ng-repeat="m in media" on-finish-render="init()">
+        <img ng-if="isImage({media: m})" ng-src="{{m.src}}" />
+        <video ng-if="isVideo({media: m})" ng-src="{{m.src}}" type="{{m.mimeType}}" ></video>
+      </div>
+    """
 
   # Whitelist of options that will be parsed from the element's attributes and passed into slick
   SLICK_OPTION_WHITELIST = [
@@ -52,22 +67,35 @@ angular.module('bardo.directives').directive 'slick', ['$timeout', ($timeout) ->
   scope: {
     settings: '='
     control: '='
-    onDirectiveInit: '&'
+    media: '='
+    onDirectiveInit: '&',
+    isImage: '&',
+    isVideo: '&'
   }
+  templateUrl: 'angular-slick-carousel/directive.html'
   restrict: 'AE'
-  transclude: true
   terminal: true
-  link: (scope, element, attr, ngModel) ->
-    $timeout ( ->
-      element.addClass('bardo-slick')
+  link: (scope, element, attr) ->
 
-      # Take a hash of options from the chosen directive
-      options = scope.settings or {}
+    unless typeof attr.isImage is 'function'
+      scope.isImage = (params) ->
+        params.media.mimeType is 'image/png' || params.media.mimeType is 'image/jpeg'
 
-      # Options defined as attributes take precedence
-      angular.forEach attr, (value, key) ->
-        options[key] = scope.$eval(value) if key in SLICK_OPTION_WHITELIST
+    unless typeof attr.isVideo is 'function'
+      scope.isVideo = (params) ->
+        params.media.mimeType is 'video/mp4'
 
+    element.addClass('bardo-slick')
+
+    # Take a hash of options from the chosen directive
+    options = scope.settings or {}
+
+    # Options defined as attributes take precedence
+    angular.forEach attr, (value, key) ->
+      options[key] = scope.$eval(value) if key in SLICK_OPTION_WHITELIST
+
+
+    scope.init = ->
       # Call slick to initiate carousel
       slick = element.slick(options)
 
@@ -81,9 +109,6 @@ angular.module('bardo.directives').directive 'slick', ['$timeout', ($timeout) ->
         return
 
       scope.onDirectiveInit()
-      return
-    ),
-    500
 
     return
   
