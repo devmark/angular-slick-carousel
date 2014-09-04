@@ -9,7 +9,7 @@ module.directive 'onFinishRender', ->
 
 module.directive 'slick', ['$timeout', '$templateCache', ($timeout, $templateCache) ->
 
-  $templateCache.put 'angular-slick-carousel/directive.html',
+  $templateCache.put 'angular-slick-carousel/template.html',
     """
       <div class="multiple" ng-repeat="m in media" on-finish-render="init()">
         <img ng-if="isImage({media: m})" ng-src="{{m.src}}" />
@@ -72,7 +72,9 @@ module.directive 'slick', ['$timeout', '$templateCache', ($timeout, $templateCac
     isImage: '&',
     isVideo: '&'
   }
-  templateUrl: 'angular-slick-carousel/directive.html'
+  templateUrl: (tElement, tAttrs) ->
+    return tAttrs.src if tAttrs.src
+    return 'angular-slick-carousel/template.html'
   restrict: 'AE'
   terminal: true
   link: (scope, element, attr) ->
@@ -109,6 +111,7 @@ module.directive 'slick', ['$timeout', '$templateCache', ($timeout, $templateCac
         return
 
       scope.onDirectiveInit()
+      return
 
     return
   

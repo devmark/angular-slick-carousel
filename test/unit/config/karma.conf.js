@@ -8,7 +8,7 @@ module.exports = function(config) {
 
     files: [
       // libraries
-      'public/bower_components/jquery/jquery.js',
+      'public/bower_components/jquery/dist/jquery.js',
       'public/bower_components/angular/angular.js',
       'public/bower_components/angular-mocks/angular-mocks.js',      
       'public/bower_components/slick-carousel/slick/slick.js',
