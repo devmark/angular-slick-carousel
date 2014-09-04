@@ -34,7 +34,7 @@ as either a `<div>` attribute or a `<slick>` element.
 
 ### Attributes ###
 1. `settings`: optional `Object` containing any of the slick options. Consult [here](http://kenwheeler.github.io/slick/#settings).
-2. `control`: optional `Object` discussed [#control](below) in detail
+2. `control`: optional `Object` discussed [below](#control) in detail
 3. `media`: mandatory `Array` of images and/or video
 4. `src`: optional `String` the url for the custom template, if desired
 4. `on-directive-init`: optional `Function` the directive's handle object is ready to use in this function. This is different from `slick`'s `onInit` handler.
