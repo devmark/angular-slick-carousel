@@ -91,4 +91,4 @@ Demo
 2. Running [example](http://bardo.io/angular-slick-carousel/app/index.html).
 3. Or, clone the repo and run a simple HTTP server in the example directory.
 
-[![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/kbdaitch/)
+[![Support via Gratipay](https://cdn.rawgit.com/twolfson/gittip-badge/1.1.0/dist/gratipay.png)](https://www.gratipay.com/kbdaitch/)
