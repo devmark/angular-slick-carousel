@@ -36,10 +36,19 @@ as either a `<div>` attribute or a `<slick>` element.
 1. `settings`: optional `Object` containing any of the slick options. Consult [here](http://kenwheeler.github.io/slick/#settings).
 2. `control`: optional `Object` discussed [below](#control) in detail
 3. `media`: mandatory `Array` of images and/or video
-4. `src`: optional `String` the url for the custom template, if desired
-4. `on-directive-init`: optional `Function` the directive's handle object is ready to use in this function. This is different from `slick`'s `onInit` handler.
-5. `is-image`: optional `Function` that takes a metadata object and returns a `Boolean`
-6. `is-video`: optional `Function` that takes a metadata object and returns a `Boolean`
+4. `src`: optional `String` the url for the custom template, if desired. Remember to specify `on-finish-render="init"` in the parent `div` of your template. `scope.init` is already defined by the directive,
+so you need not worry about defining it.
+
+    ```html
+    <script type="text/ng-template" id="optionalCustomTemplate.html">
+    <div ng-repeat="card in media" class="slide" on-finish-render="init()">
+        <!-- use card, ng-include it, ng-html-bind it, or whatever -->
+    </div>
+    </script>
+    ```
+5. `on-directive-init`: optional `Function` the directive's handle object is ready to use in this function. This is different from `slick`'s `onInit` handler.
+6. `is-image`: optional `Function` that takes a metadata object and returns a `Boolean`
+7. `is-video`: optional `Function` that takes a metadata object and returns a `Boolean`
 
 ### Steps ###
 1. Include the `slick.js` at the base of this repo, or install through `bower`:
