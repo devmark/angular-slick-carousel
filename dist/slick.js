@@ -19,7 +19,7 @@
     '$timeout', '$templateCache', function($timeout, $templateCache) {
       var SLICK_FUNCTION_WHITELIST, SLICK_OPTION_WHITELIST, isEmpty;
       $templateCache.put('angular-slick-carousel/template.html', "<div class=\"multiple\" ng-repeat=\"m in media\" on-finish-render=\"init()\">\n  <img ng-if=\"isImage({media: m})\" ng-src=\"{{m.src}}\" />\n  <video ng-if=\"isVideo({media: m})\" ng-src=\"{{m.src}}\" type=\"{{m.mimeType}}\" ></video>\n</div>");
-      SLICK_OPTION_WHITELIST = ['accessiblity', 'autoplay', 'autoplaySpeed', 'arrows', 'cssEase', 'dots', 'draggable', 'fade', 'easing', 'infinite', 'onBeforeChange', 'onAfterChange', 'pauseOnHover', 'responsive', 'slide', 'slidesToShow', 'slidesToScroll', 'speed', 'swipe', 'touchMove', 'touchThreshold', 'vertical'];
+      SLICK_OPTION_WHITELIST = ['accessiblity', 'autoplay', 'autoplaySpeed', 'arrows', 'cssEase', 'dots', 'draggable', 'fade', 'easing', 'infinite', 'onBeforeChange', 'onAfterChange', 'pauseOnHover', 'responsive', 'slide', 'slidesToShow', 'slidesToScroll', 'speed', 'swipe', 'touchMove', 'touchThreshold', 'vertical', 'focusOnSelect', 'centerMode'];
       SLICK_FUNCTION_WHITELIST = ['slickGoTo', 'slickNext', 'slickPrev', 'slickPause', 'slickPlay', 'slickAdd', 'slickRemove', 'slickFilter', 'slickUnfilter', 'unslick'];
       isEmpty = function(value) {
         var key;
@@ -65,6 +65,9 @@
           }
           element.addClass('bardo-slick');
           options = scope.settings || {};
+          if (attr['asNavFor']) {
+            options['asNavFor'] = attr['asNavFor'];
+          }
           angular.forEach(attr, function(value, key) {
             if (__indexOf.call(SLICK_OPTION_WHITELIST, key) >= 0) {
               return options[key] = scope.$eval(value);
