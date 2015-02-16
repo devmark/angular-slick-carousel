@@ -16,7 +16,7 @@
     "package.json"
   ],
   "dependencies": {
-    "slick-carousel": "~1.4.0",
+    "slick-carousel": "~1.4.1",
     "angular": ">=1.2.0"
   },
   "homepage": "https://github.com/kbdaitch/angular-slick-carousel",

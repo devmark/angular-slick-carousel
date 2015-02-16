@@ -108,6 +108,7 @@ module.directive 'slick', ['$timeout', '$templateCache', ($timeout, $templateCac
           args = Array.prototype.slice.call(arguments)
           args.unshift value
           slickness.slick.apply(element, args)
+          return
         return
 
       scope.onDirectiveInit()

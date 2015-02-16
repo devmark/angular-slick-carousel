@@ -79,7 +79,7 @@
                 var args;
                 args = Array.prototype.slice.call(arguments);
                 args.unshift(value);
-                return slickness.slick.apply(element, args);
+                slickness.slick.apply(element, args);
               };
             });
             scope.onDirectiveInit();
