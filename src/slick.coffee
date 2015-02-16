@@ -40,7 +40,9 @@ module.directive 'slick', ['$timeout', '$templateCache', ($timeout, $templateCac
     'swipe',
     'touchMove',
     'touchThreshold',
-    'vertical'
+    'vertical',
+    'focusOnSelect',
+    'centerMode',
   ]
 
   # Whitelist of functions that the control API in this directive accepts
@@ -91,6 +93,7 @@ module.directive 'slick', ['$timeout', '$templateCache', ($timeout, $templateCac
 
     # Take a hash of options from the chosen directive
     options = scope.settings or {}
+    options['asNavFor'] = attr['asNavFor'] if attr['asNavFor']
 
     # Options defined as attributes take precedence
     angular.forEach attr, (value, key) ->
