@@ -96,23 +96,23 @@ module.directive 'slick', ['$timeout', '$templateCache', ($timeout, $templateCac
     angular.forEach attr, (value, key) ->
       options[key] = scope.$eval(value) if key in SLICK_OPTION_WHITELIST
 
-
     scope.init = ->
       # Call slick to initiate carousel
-      slick = element.slick(options)
+      slickness = element.slick(options)
 
       # Link slick functions with bi-directional control binding, if any
       scope.internalControl = scope.control || {}
       SLICK_FUNCTION_WHITELIST.forEach (value) ->
         # Delegate to underlying slick function with context set to element
         scope.internalControl[value] = ->
-          slick[value].apply(slick, arguments)
-          return
+          args = Array.prototype.slice.call(arguments)
+          args.unshift value
+          slickness.slick.apply(element, args)
         return
 
       scope.onDirectiveInit()
       return
 
     return
-  
+
   ]
