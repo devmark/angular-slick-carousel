@@ -71,12 +71,15 @@
             }
           });
           scope.init = function() {
-            var slick;
-            slick = element.slick(options);
+            var slickness;
+            slickness = element.slick(options);
             scope.internalControl = scope.control || {};
             SLICK_FUNCTION_WHITELIST.forEach(function(value) {
               scope.internalControl[value] = function() {
-                slick[value].apply(slick, arguments);
+                var args;
+                args = Array.prototype.slice.call(arguments);
+                args.unshift(value);
+                slickness.slick.apply(element, args);
               };
             });
             scope.onDirectiveInit();
