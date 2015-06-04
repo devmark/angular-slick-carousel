@@ -28,7 +28,7 @@ as either a `<div>` attribute or a `<slick>` element.
   src="optionalCustomTemplate.html"
   on-directive-init="onDirectiveInit()"
   is-image="isImage(media)" 
-  is-video="isVideo(media)>
+  is-video="isVideo(media)">
 </slick>
 ```
 
