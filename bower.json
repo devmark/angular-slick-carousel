@@ -1,7 +1,10 @@
 {
   "name": "angular-slick-carousel",
-  "version": "2.0.1",
-  "main": "dist/slick.js",
+  "version": "2.0.2",
+  "main": [
+    "dist/slick.js",
+    "bower.json"
+  ],
   "ignore": [
     "src",
     "example",
