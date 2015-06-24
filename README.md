@@ -1,6 +1,8 @@
 angular-slick-carousel
 ======================
 
+[![Join the chat at https://gitter.im/kbdaitch/angular-slick-carousel](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kbdaitch/angular-slick-carousel?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 
 Release: 2.0
