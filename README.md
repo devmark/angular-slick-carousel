@@ -95,6 +95,21 @@ as shown in the example.
   <button ng-click='slickHandle.slickPause()'>slickPause()</button>
   ```
 
+Ajax/dynamic Usecase
+---------------------
+
+Looks like doing in in-place changes to the `media` object is not liked by the underlying slick plugin by Ken Wheeler. That could be the reason why he provided `slickAdd` in the API.
+
+One could implement some simple media store independent of the `media` object used by the directive. One could then add a watcher on your store, and on change in its value, find the differential, and add/remove the pertinent slides from the slick element using the API, as shown in the [plunkr](http://plnkr.co/edit/w3zCY0wxFBqYAD2ZLcAG?p=preview).
+
+Please note that here I worked out the logic in a controller, it would be more semantically correct (since it uses the `slickAdd` API to manipulate the DOM), if it was done inside another directive, which in turn, could use my slick directive.
+
+In the above plunkr, I use the `$compile` service to create new scopes, which may be pricy depending on frequency of changes to the `mediaStore`. One could do some bookkeeping and explicity call `$destroy` as mentioned [here](https://docs.angularjs.org/api/ng/type/$rootScope.Scope).
+
+For more discussion, see this [issue](https://github.com/kbdaitch/angular-slick-carousel/issues/8).
+
+
+
 Demo
 ----
 
