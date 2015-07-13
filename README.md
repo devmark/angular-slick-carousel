@@ -3,10 +3,12 @@ angular-slick-carousel
 
 [![Join the chat at https://gitter.im/kbdaitch/angular-slick-carousel](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kbdaitch/angular-slick-carousel?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Up for Adoption - Do you love OSS, Angular and the like? If you have contributed before to this project,
+Up for Adoption
+------------
+
+Do you love OSS, Angular and the like? If you have contributed before to this project,
 or if you have confidence you can maintain it, I am willing to forego this project, and would get it moved
 to your GitHub account. Reason: work is keeping me busy, and I am moving on from frontend to DevOps. See [issue](#22)
-------------
 
 Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 
