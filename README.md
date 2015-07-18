@@ -1,10 +1,3 @@
-Up for Adoption
-------------
-
-Do you love OSS, Angular and the like? If you have contributed before to this project,
-or if you have confidence you can maintain it, I am willing to forego this project, and would get it moved
-to your GitHub account. Reason: work is keeping me busy, and I am moving on from frontend to DevOps. See [issue](https://github.com/kbdaitch/angular-slick-carousel/issues/21)
-
 angular-slick-carousel
 ======================
 
