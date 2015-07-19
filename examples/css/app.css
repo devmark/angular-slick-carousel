@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Pacifico';
+    src: url('pacifico.eot');
+    src: url('pacifico.eot?#iefix') format('embedded-opentype'),
+    url('pacifico.woff') format('woff'),
+    url('pacifico.ttf') format('truetype'),
+    url('pacifico.svg#Pacifico') format('svg');
+}
+
+.header {
+    padding: 20px 0px;
+}
+
+.header .title {
+    color: #3498db;
+    font-size: 48px;
+    line-height: 100px;
+    font-family: 'Pacifico';
+}
+
+.header .sub-title {
+    color: #555;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.blue {
+    background: #3498db;
+    color: #fff;
+}
+
+.blue h3 {
+    background: #fff;
+    color: #3498db;
+    font-size: 36px;
+    line-height: 100px;
+    margin: 10px;
+    padding: 2%;
+    position: relative;
+    text-align: center;
+}
+
+.content .content-title {
+    text-align: center;
+    line-height: 100px;
+    font-family: 'Pacifico';
+}
+
+
+.footer {
+    padding: 20px 0px;
+}
+
+.footer .title {
+    color: #3498db;
+    font-size: 48px;
+    line-height: 100px;
+    font-family: 'Pacifico';
+}
+
+.footer .sub-title {
+    color: #555;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    margin: 10px auto;
+    text-align: center;
+}

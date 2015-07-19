@@ -1,5 +1,6 @@
-.idea
-.DS_Store
-node_modules
-bower_components
-validate-bower.js
+node_modules/
+bower_components/
+.sass-cache/
+.idea/
+.tmp/
+dist/

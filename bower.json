@@ -1,30 +1,9 @@
 {
   "name": "angular-slick-carousel",
-  "version": "2.1.2",
-  "main": [
-    "dist/slick.js",
-    "bower.json"
-  ],
-  "ignore": [
-    "src",
-    "example",
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "app/bower_components",
-    "test",
-    "tests",
-    "Gruntfile.js",
-    "README.md",
-    "package.json"
-  ],
-  "dependencies": {
-    "slick-carousel": "~1.4.1",
-    "angular": ">=1.2.0"
-  },
+  "version": "3.0.0",
   "homepage": "https://github.com/devmark/angular-slick-carousel",
   "authors": [
-    "Ho Chi Mark Wong <hc.devmark@gmail.com>",
+    "DevMark <hc.devmark@gmail.com>",
     "Karan Batra-Daitch <karanganesha04@gmail.com>"
   ],
   "description": "Angular directive for slick carousel",
@@ -36,7 +15,23 @@
     "slick-carousel"
   ],
   "license": "MIT",
+  "main": [
+    "dist/angular-slick.min.js",
+    "bower.json"
+  ],
+  "dependencies": {
+    "slick-carousel": "~1.5.6",
+    "angular": "~1.4.0",
+    "lodash": "~3.10.0"
+  },
   "devDependencies": {
-    "angular-mocks": "~1.2.16"
+    "angular-mocks": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5"
+  },
+  "resolutions": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.0"
   }
 }
