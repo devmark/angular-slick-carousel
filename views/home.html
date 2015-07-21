@@ -5,35 +5,37 @@
             <h2 class="content-title">Single Item</h2>
 
             <script type="text/ng-template" id="tpl.html">
-                <h3>{{ i }}</h3>
+                <h3>{{ i.label }}</h3>
             </script>
 
             <slick class="slider" settings="slickConfig" data="number">
-                <div ng-repeat="i in number track by $index">
+                <div ng-repeat="i in number">
                     <div class="" ng-include="'tpl.html'"></div>
                 </div>
             </slick>
+
             <div>
+                <button class="btn btn-info" ng-click="slickConfig.method.slickFilter(':even')">Filter</button>
+                <button class="btn btn-info" ng-click="slickConfig.method.slickUnfilter()">unFilter</button>
                 <button class="btn btn-info" ng-click="slickConfig.method.slickGoTo(2)">GoTo(2)</button>
                 <button class="btn btn-info" ng-click="slickConfig.method.slickPrev()">Prev()</button>
                 <button class="btn btn-info" ng-click="slickConfig.method.slickNext()">Next()</button>
-                <button class="btn btn-info" ng-click='slickConfig.method.slickAdd("<div>New</div>")'>Add()</button>
+                <button class="btn btn-info" ng-click="slideAdd('number')">Add()</button>
                 <button class="btn btn-info" ng-click='slickConfig.method.slickRemove(3)'>Remove(3)</button>
                 <button class="btn btn-info" ng-click='slickConfig.method.slickPlay()'>Play()</button>
                 <button class="btn btn-info" ng-click='slickConfig.method.slickPause()'>Pause()</button>
             </div>
 
-
             <h2 class="content-title">Multiple Items</h2>
             <slick class="slider" settings="slickConfig2" data="number">
-                <div ng-repeat="i in number track by $index">
+                <div ng-repeat="i in number">
                     <div class="" ng-include="'tpl.html'"></div>
                 </div>
             </slick>
 
             <h2 class="content-title">Responsive Display</h2>
-            <slick class="slider" settings="slickConfig3" data="number">
-                <div ng-repeat="i in number track by $index">
+            <slick class="slider" settings="slickConfig3" data="number2">
+                <div ng-repeat="i in number2">
                     <div class="" ng-include="'tpl.html'"></div>
                 </div>
             </slick>
@@ -42,11 +44,11 @@
             <h2 class="content-title">Variable Width</h2>
 
             <slick class="slider" settings="slickConfig4" data="number4">
-                <div ng-repeat="i in number4 track by $index">
-                    <div style="width:{{ i }}px;height:100px" ng-include="'tpl.html'"></div>
+                <div ng-repeat="i in number4">
+                    <div style="width:{{ i.label }}px;height:100px" ng-include="'tpl.html'"></div>
                 </div>
             </slick>
-            
+
             <div>
                 <button class="btn btn-info" ng-click="slickConfig4.method.slickGoTo(2)">GoTo(2)</button>
                 <button class="btn btn-info" ng-click="slickConfig4.method.slickPrev()">Prev()</button>
@@ -56,6 +58,7 @@
                 <button class="btn btn-info" ng-click='slickConfig4.method.slickPlay()'>Play()</button>
                 <button class="btn btn-info" ng-click='slickConfig4.method.slickPause()'>Pause()</button>
             </div>
+
         </div>
     </div>
 </section>

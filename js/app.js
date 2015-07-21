@@ -1,9 +1,6 @@
 'use strict';
 
 angular.module('slickExampleApp', ['slickCarousel', 'ngRoute'])
-    .config(function (slickCarouselConfig) {
-        slickCarouselConfig.dots = true;
-    })
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/', {
@@ -14,25 +11,20 @@ angular.module('slickExampleApp', ['slickCarousel', 'ngRoute'])
                 redirectTo: '/'
             });
     }])
-    .controller('SlickController', function ($scope, $sce, $timeout) {
+    .controller('SlickController', function ($scope, $timeout, $compile) {
+        $scope.number = [{label: 1}, {label: 2}, {label: 3}, {label: 4}, {label: 5}, {label: 6}, {label: 7}, {label: 8}];
+        $scope.number2 = [{label: 1}, {label: 2}, {label: 3}, {label: 4}, {label: 5}, {label: 6}, {label: 7}, {label: 8}];
+        $scope.number3 = [{label: 1}, {label: 2}, {label: 3}, {label: 4}, {label: 5}, {label: 6}, {label: 7}, {label: 8}];
+        $scope.number4 = [{label: 225}, {label: 125}, {label: 200}, {label: 175}, {label: 150}, {label: 180}, {label: 300}, {label: 400}];
 
-        var playVideo = function (index, video) {
-            var jqVideo = $(video);
-            // Pause the carousel for the duration of the video
-            $scope.slickConfig.method.slickPause();
-
-            // Using jQuery element instead, otherwise the native releaseEventHandler on 'ended' doesn't
-            // work as intended
-            jqVideo.bind('ended', function () {
-                $scope.slickConfig.method.slickPlay();
-                jqVideo.unbind('ended');
-            });
-            video.play();
+        $scope.slideAdd = function (object) {
+            $scope[object].push({label: Math.floor((Math.random() * 10) + 100)});
         };
 
         $scope.slickConfig = {
-            autoplay: true,
-            draggable: false,
+            dots: true,
+            autoplay: false,
+            infinite: true,
             autoplaySpeed: 3000,
             method: {},
             event: {
@@ -40,7 +32,7 @@ angular.module('slickExampleApp', ['slickCarousel', 'ngRoute'])
                     console.log('before change');
                 },
                 afterChange: function (event, slick, currentSlide, nextSlide) {
-                    $(slick.$slides[currentSlide]).find('video').each(playVideo);
+
                 },
                 breakpoint: function (event, slick, breakpoint) {
                     console.log('breakpoint');
@@ -55,8 +47,7 @@ angular.module('slickExampleApp', ['slickCarousel', 'ngRoute'])
                     console.log('re-init');
                 },
                 init: function (event, slick) {
-
-                    console.log('init', slick);
+                    console.log('init');
                 },
                 setPosition: function (evnet, slick) {
                     console.log('setPosition');
@@ -117,13 +108,5 @@ angular.module('slickExampleApp', ['slickCarousel', 'ngRoute'])
             variableWidth: true
         };
 
-        $scope.number = [1, 2, 3, 4, 6, 7, 8];
-        $scope.number2 = [1, 2, 33, 4, 6, 7, 8];
-        $scope.number4 = [225, 125, 200, 175, 150, 300];
-
-    }).directive('myDirective', function () {
-        return {
-            template: '<div class="something"> This is my directive content</div>'
-        }
     });
 
