@@ -8,13 +8,11 @@
                 <h3>{{ i.label }}</h3>
             </script>
 
-            <div style="min-height:150px;">
-                <slick class="slider" settings="slickConfig" data="number" style="min-height:150px;">
-                    <div ng-repeat="i in number">
-                        <div class="" ng-include="'tpl.html'"></div>
-                    </div>
-                </slick>
-            </div>
+            <slick class="slider" settings="slickConfig" data="number">
+                <div ng-repeat="i in number">
+                    <div class="" ng-include="'tpl.html'"></div>
+                </div>
+            </slick>
 
             <div>
                 <button class="btn btn-info" ng-click="slickConfig.method.slickFilter(':even')">Filter</button>
