@@ -40,7 +40,7 @@ as either a `<div>` attribute or a `<slick>` element.
     </slick>
 ```
 
-### Attributes ###
+### Attributes & Event ###
 `settings`: optional `Object` containing any of the slick options. Consult [here](http://kenwheeler.github.io/slick/#settings).
  - `method` optional containing slick method. discussed [below](#method) in detail
  - `event` optional containing slick event
@@ -59,7 +59,7 @@ $scope.slickConfig = {
     }
 };
 ```
-`data`: object for ng-repeat data
+`data`: object for ng-repeat data, discussed [below](#data) in detail
 
 ### Method ###
 1. All the functions in the plugin are exposed through a control
@@ -83,7 +83,34 @@ as shown in the example.
   <button ng-click='slickConfig.method.slickPlay()'>slickPlay()</button>
   <button ng-click='slickConfig.method.slickPause()'>slickPause()</button>
   ```
-  
+### Data ###
+
+If you gonna make a ng-repeat for slick. 
+you have to set `data` attribute
+
+- controller:
+```js
+    $scope.number = [{label: 1}, {label: 2}, {label: 3}, {label: 4}, {label: 5}, {label: 6}, {label: 7}, {label: 8}];
+```
+- html:
+```html
+    <script type="text/ng-template" id="tpl.html">
+        <h3>{{ i.label }}</h3>
+    </script>
+    
+    <slick data="number">
+        <div ng-repeat="i in number">
+            <div class="" ng-include="'tpl.html'"></div>
+        </div>
+    </slick>
+```
+- change data? 2 options
+ 1. use slick event handler: slickAdd("<div>HTML</div>") function
+ 2. update data object directly.
+> it will re-init slick, so it will affect site height when destroying slick. 
+> Also, it CANNOT use `track by $index`
+> i will figure out it.
+
 
 ### Global config ###
   ```js
