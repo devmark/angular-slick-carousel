@@ -105,8 +105,9 @@ you have to set `data` attribute
     </slick>
 ```
 - change data? 2 options
- 1. use slick event handler: slickAdd("<div>HTML</div>") function
+ 1. use slick event handler: ```slickAdd("<div>HTML</div>")``` function
  2. update data object directly.
+ 
 > it will re-init slick, so it will affect site height when destroying slick. 
 > Also, it CANNOT use `track by $index`
 > i will figure out it.
