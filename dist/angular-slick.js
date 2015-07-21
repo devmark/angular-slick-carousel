@@ -2,7 +2,7 @@
  * angular-slick-carousel
  * DevMark <hc.devmark@gmail.com>,Karan Batra-Daitch <karanganesha04@gmail.com>
  * https://github.com/devmark/angular-slick-carousel
- * Version: 3.0.0 - 2015-07-19T09:39:16.503Z
+ * Version: 3.0.0 - 2015-07-21T10:53:43.541Z
  * License: MIT
  */
 
@@ -32,7 +32,7 @@
             event: {}
         })
         .directive('slick', [
-            '$timeout', 'slickCarouselConfig', function ($timeout, slickCarouselConfig) {
+            '$timeout', 'slickCarouselConfig', '$compile', function ($timeout, slickCarouselConfig, $compile) {
                 var slickOptionList, slickMethodList, slickEventList;
                 slickOptionList = ['accessibility', 'adaptiveHeight', 'autoplay', 'autoplaySpeed', 'asNavFor', 'appendArrows', 'prevArrow', 'nextArrow', 'centerMode', 'centerPadding', 'cssEase', 'customPaging', 'dots', 'draggable', 'fade', 'focusOnSelect', 'edgeFriction', 'infinite', 'initialSlide', 'lazyLoad', 'mobileFirst', 'pauseOnHover', 'pauseOnDotsHover', 'respondTo', 'rows', 'slide', 'slidesPerRow', 'slidesToShow', 'slidesToScroll', 'speed', 'swipe', 'swipeToSlide', 'touchMove', 'touchThreshold', 'useCSS', 'variableWidth', 'vertical', 'verticalSwiping', 'rtl'];
                 slickMethodList = ['slickGoTo', 'slickNext', 'slickPrev', 'slickPause', 'slickPlay', 'slickAdd', 'slickRemove', 'slickFilter', 'slickUnfilter', 'unslick'];
@@ -45,11 +45,10 @@
                     },
                     restrict: 'AE',
                     link: function (scope, element, attr) {
-                        var options, initOptions, destroy, init, isInit = false, destroyAndInit;
+                        var options, initOptions, destroy, init, destroyAndInit;
 
                         initOptions = function () {
                             options = angular.extend(angular.copy(slickCarouselConfig), scope.settings);
-
                             angular.forEach(attr, function (value, key) {
                                 if (__indexOf.call(slickOptionList, key) >= 0) {
                                     options[key] = scope.$eval(value);
@@ -58,18 +57,26 @@
                         };
 
                         destroy = function () {
-                            return $timeout(function () {
-                                var slickness;
-                                slickness = element.slick('unslick');
-                                slickness.find('.slick-list').remove();
-                                return slickness;
-                            });
+                            //remove current slides
+                            var slickness = element.slick('getSlick');
+                            for (var i = 0; i < slickness.slideCount; i++) {
+                                element.slick('slickRemove', i);
+                            }
+                            slickness = element.slick('unslick');
+                            return slickness;
                         };
 
                         init = function () {
                             return $timeout(function () {
+                                initOptions();
                                 var slickness;
-                                slickness = element.slick(options);
+
+                                if (angular.element(element).hasClass('slick-initialized')) {
+                                    slickness = element.slick('getSlick');
+                                } else {
+                                    slickness = element.slick(options);
+                                }
+
                                 scope.internalControl = options.method || {};
 
                                 // Method
@@ -83,11 +90,12 @@
                                 });
 
                                 // Event
-                                if (typeof options.event.afterChange !== 'undefined') {
-                                    slickness.on('afterChange', function (event, slick, currentSlide, nextSlide) {
+                                slickness.on('afterChange', function (event, slick, currentSlide, nextSlide) {
+                                    if (typeof options.event.afterChange !== 'undefined') {
                                         options.event.afterChange(event, slick, currentSlide, nextSlide);
-                                    });
-                                }
+                                    }
+                                });
+
                                 if (typeof options.event.beforeChange !== 'undefined') {
                                     slickness.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
                                         options.event.beforeChange(event, slick, currentSlide, nextSlide);
@@ -108,11 +116,13 @@
                                         options.event.edge(event, slick, direction);
                                     });
                                 }
-                                if (typeof options.event.init !== 'undefined') {
-                                    slickness.on('init', function (event, slick) {
+
+                                slickness.on('init', function (event, slick) {
+                                    if (typeof options.event.init !== 'undefined') {
                                         options.event.init(event, slick);
-                                    });
-                                }
+                                    }
+                                });
+
                                 if (typeof options.event.reInit !== 'undefined') {
                                     slickness.on('reInit', function (event, slick) {
                                         options.event.reInit(event, slick);
@@ -132,13 +142,13 @@
                         };
 
                         destroyAndInit = function () {
-                            if (isInit) {
+                            if (angular.element(element).hasClass('slick-initialized')) {
                                 destroy();
                             }
-                            initOptions();
-                            init();
-                            isInit = true;
-                            return isInit;
+
+                            return $timeout(function () {
+                                return init();
+                            }, 1);
                         };
 
                         scope.$watch('settings', function (newVal, oldVal) {
@@ -148,11 +158,10 @@
                         }, true);
 
                         return scope.$watch('data', function (newVal, oldVal) {
-                            if (typeof newVal !== 'undefined' && newVal !== null) {
-                                return destroyAndInit();
+                            if (!angular.equals(newVal, oldVal)) {
+                                destroyAndInit();
                             }
-                        }, 1);
-
+                        }, true);
 
                     }
                 };

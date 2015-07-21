@@ -30,7 +30,8 @@ gulp.task('default', ['build', 'test']);
 gulp.task('build', ['scripts', 'styles']);
 gulp.task('test', ['build', 'karma']);
 
-gulp.task('watch', ['build', 'karma-watch'], function () {
+gulp.task('watch', ['build'], function () {
+//gulp.task('watch', ['build', 'karma-watch'], function () {
     gulp.watch(['src/**/*.{js,html}'], ['build']);
 });
 
@@ -55,9 +56,9 @@ gulp.task('scripts', ['clean'], function () {
             .pipe(plumber({
                 errorHandler: handleError
             }))
-            .pipe(jshint())
-            .pipe(jshint.reporter('jshint-stylish'))
-            .pipe(jshint.reporter('fail'));
+            .pipe(jshint());
+            //.pipe(jshint.reporter('jshint-stylish'))
+            //.pipe(jshint.reporter('fail'));
     };
 
     return es.merge(buildLib(), buildTemplates())
