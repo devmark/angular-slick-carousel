@@ -5,12 +5,10 @@ angular-slick-carousel
 
 Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 
-Release: 3.0
+Release: 3.0.2
 ------------
-1. recode 
-2. support global config
-3. added full callback
-4. slider control
+- fixed dynamic data
+
 
 Download
 -----
@@ -86,7 +84,14 @@ as shown in the example.
   <button ng-click='slickConfig.method.slickPause()'>slickPause()</button>
   ```
   
-  
+
+### Global config ###
+  ```js
+    config(['slickCarouselConfig', function (slickCarouselConfig) {
+        slickCarouselConfig.dots = true;
+        slickCarouselConfig.autoplay = false;
+    }])
+  ```
 TODO
 -----
 - create unit test

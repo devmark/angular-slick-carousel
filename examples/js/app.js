@@ -11,6 +11,10 @@ angular.module('slickExampleApp', ['slickCarousel', 'ngRoute'])
                 redirectTo: '/'
             });
     }])
+    .config(['slickCarouselConfig', function (slickCarouselConfig) {
+        slickCarouselConfig.dots = true;
+        slickCarouselConfig.autoplay = false;
+    }])
     .controller('SlickController', function ($scope, $timeout, $compile) {
         $scope.number = [{label: 1}, {label: 2}, {label: 3}, {label: 4}, {label: 5}, {label: 6}, {label: 7}, {label: 8}];
         $scope.number2 = [{label: 1}, {label: 2}, {label: 3}, {label: 4}, {label: 5}, {label: 6}, {label: 7}, {label: 8}];
@@ -22,8 +26,7 @@ angular.module('slickExampleApp', ['slickCarousel', 'ngRoute'])
         };
 
         $scope.slickConfig = {
-            dots: true,
-            autoplay: false,
+            autoplay:true,
             infinite: true,
             autoplaySpeed: 3000,
             method: {},
