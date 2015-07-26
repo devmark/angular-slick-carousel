@@ -10,11 +10,6 @@ Release: 3.0.2
 - fixed dynamic data
 
 
-Download
------
-- Using [bower](http://bower.io/) to install it. `bower install angular-slick-carousel`
-- [Download](https://github.com/devmark/angular-slick-carousel/archive/master.zip) from github.
-
 Usage
 -----
 
@@ -134,5 +129,5 @@ you have to set `data` attribute
   ```
 TODO
 -----
-- create unit test
+- Create unit test
 
