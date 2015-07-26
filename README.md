@@ -18,8 +18,20 @@ Download
 Usage
 -----
 
-### Code
-Add the sortable module as a dependency to your application module: `slickCarousel`
+- Using [bower](http://bower.io/) to install it. `bower install angular-slick-carousel`
+- Add `jquery`, `angular`, `slick-carousel` and `angular-slick-carousel` to your code.
+
+```html
+    <link rel="stylesheet" href="../bower_components/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="../bower_components/slick-carousel/slick/slick-theme.css">
+    
+    <script src="../bower_components/jquery/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/slick-carousel/slick/slick.js"></script>
+    <script src="../bower_components/angular-slick-carousel/dist/angular-slick.min.js"></script>
+```
+
+- Add the sortable module as a dependency to your application module: `slickCarousel`
 
 ```js
 var myAppModule = angular.module('MyApp', ['slickCarousel'])
