@@ -11,9 +11,14 @@
             <script type="text/ng-template" id="tpl2.html">
                 <h3>{{ i }}</h3>
             </script>
+<<<<<<< HEAD
 
             <slick class="slider" settings="slickConfig" ng-if="slickConfig1Loaded" data="number1" dots="true">
                 <div ng-repeat="i in number1 track by $index">
+=======
+            <slick class="slider" settings="slickConfig" data="number">
+                <div ng-repeat="i in number track by $index">
+>>>>>>> origin/master
                     <div class="" ng-include="'tpl2.html'"></div>
                 </div>
             </slick>
@@ -24,16 +29,26 @@
                 <button class="btn btn-info" ng-click="slickConfig.method.slickGoTo(2)">GoTo(2)</button>
                 <button class="btn btn-info" ng-click="slickConfig.method.slickPrev()">Prev()</button>
                 <button class="btn btn-info" ng-click="slickConfig.method.slickNext()">Next()</button>
+<<<<<<< HEAD
                 <button class="btn btn-info" ng-click="updateNumber1()">Update/Add()</button>
+=======
+                <button class="btn btn-info" ng-click="slideAdd2('number')">Add()</button>
+>>>>>>> origin/master
                 <button class="btn btn-info" ng-click='slickConfig.method.slickRemove(3)'>Remove(3)</button>
                 <button class="btn btn-info" ng-click='slickConfig.method.slickPlay()'>Play()</button>
                 <button class="btn btn-info" ng-click='slickConfig.method.slickPause()'>Pause()</button>
             </div>
 
             <h2 class="content-title">Multiple Items</h2>
+<<<<<<< HEAD
             <slick class="slider" settings="slickConfig2" data="number2" ng-if="slickConfig2Loaded">
                 <div ng-repeat="i in number2  track by $index">
                     <div class="" ng-include="'tpl.html'"></div>
+=======
+            <slick class="slider" settings="slickConfig2" data="number">
+                <div ng-repeat="i in number">
+                    <div class="" ng-include="'tpl2.html'"></div>
+>>>>>>> origin/master
                 </div>
             </slick>
 

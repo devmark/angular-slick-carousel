@@ -16,6 +16,7 @@ angular.module('slickExampleApp', ['slickCarousel', 'ngRoute'])
         slickCarouselConfig.autoplay = false;
     }])
     .controller('SlickController', function ($scope, $timeout) {
+<<<<<<< HEAD
         //====================================
         // Slick 1
         //====================================
@@ -28,7 +29,35 @@ angular.module('slickExampleApp', ['slickCarousel', 'ngRoute'])
             $timeout(function () {
                 $scope.slickConfig1Loaded = true;
             }, 5);
+=======
+
+        $scope.number = [1, 2, 3, 4, 5, 6, 7, 8];
+        $scope.number2 = [{label: 1}, {label: 2}, {label: 3}, {label: 4}, {label: 5}, {label: 6}, {label: 7}, {label: 8}];
+        $scope.number3 = [{label: 1}, {label: 2}, {label: 3}, {label: 4}, {label: 5}, {label: 6}, {label: 7}, {label: 8}];
+        $scope.number4 = [{label: 225}, {label: 125}, {label: 200}, {label: 175}, {label: 150}, {label: 180}, {label: 300}, {label: 400}];
+
+        $scope.slideAdd = function (object) {
+            $scope[object].push({label: Math.floor((Math.random() * 10) + 100)});
+>>>>>>> origin/master
         };
+
+        $scope.slideAdd2 = function (object) {
+            $scope[object].push(Math.floor((Math.random() * 10) + 100));
+        };
+
+        $timeout(function () {
+            $scope.number[2] = 555;
+        }, 1000);
+        $timeout(function () {
+            $scope['number'].push(Math.floor((Math.random() * 10) + 100));
+        }, 1500);
+
+        $timeout(function () {
+            $scope.number2[2].label = 555;
+        }, 1000);
+        $timeout(function () {
+            $scope.slideAdd2('number2');
+        }, 1500);
 
         $scope.slickConfig = {
             autoplay: true,
