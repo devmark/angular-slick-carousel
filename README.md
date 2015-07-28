@@ -7,7 +7,7 @@ Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 
 Release: 3.0.5
 ------------
-- fixed dynamic data, discussed [below](#SlideData) in detail
+- fixed dynamic data, discussed [below](#slidedata) in detail
 
 
 Usage
