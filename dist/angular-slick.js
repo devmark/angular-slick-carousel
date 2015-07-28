@@ -2,7 +2,7 @@
  * angular-slick-carousel
  * DevMark <hc.devmark@gmail.com>,Karan Batra-Daitch <karanganesha04@gmail.com>
  * https://github.com/devmark/angular-slick-carousel
- * Version: 3.0.2 - 2015-07-28T10:11:27.057Z
+ * Version: 3.0.2 - 2015-07-28T10:42:08.174Z
  * License: MIT
  */
 
@@ -59,12 +59,12 @@ angular
                     init = function () {
                         return $timeout(function () {
                             initOptions();
-                            var slickness;
+                            var slickness = $(element);
 
                             if (angular.element(element).hasClass('slick-initialized')) {
-                                slickness = element.slick('getSlick');
+                                slickness.slick('getSlick');
                             } else {
-                                slickness = element.slick(options);
+                                slickness.slick(options);
                             }
 
                             scope.internalControl = options.method || {};
@@ -148,7 +148,7 @@ angular
                     }, true);
 
                     return scope.$watch('data', function (newVal, oldVal) {
-                        if (newVal.length > oldVal.length && !angular.equals(newVal, oldVal)) {
+                        if (newVal !== null) {
                             destroyAndInit();
                         }
                     }, true);

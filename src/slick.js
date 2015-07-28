@@ -50,12 +50,12 @@ angular
                     init = function () {
                         return $timeout(function () {
                             initOptions();
-                            var slickness;
+                            var slickness = $(element);
 
                             if (angular.element(element).hasClass('slick-initialized')) {
-                                slickness = element.slick('getSlick');
+                                slickness.slick('getSlick');
                             } else {
-                                slickness = element.slick(options);
+                                slickness.slick(options);
                             }
 
                             scope.internalControl = options.method || {};
@@ -139,7 +139,7 @@ angular
                     }, true);
 
                     return scope.$watch('data', function (newVal, oldVal) {
-                        if (newVal.length > oldVal.length && !angular.equals(newVal, oldVal)) {
+                        if (newVal !== null) {
                             destroyAndInit();
                         }
                     }, true);

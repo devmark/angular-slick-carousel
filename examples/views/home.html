@@ -8,9 +8,12 @@
                 <h3>{{ i.label }}</h3>
             </script>
 
+            <script type="text/ng-template" id="tpl2.html">
+                <h3>{{ i }}</h3>
+            </script>
             <slick class="slider" settings="slickConfig" data="number">
-                <div ng-repeat="i in number">
-                    <div class="" ng-include="'tpl.html'"></div>
+                <div ng-repeat="i in number track by $index">
+                    <div class="" ng-include="'tpl2.html'"></div>
                 </div>
             </slick>
 
@@ -20,7 +23,7 @@
                 <button class="btn btn-info" ng-click="slickConfig.method.slickGoTo(2)">GoTo(2)</button>
                 <button class="btn btn-info" ng-click="slickConfig.method.slickPrev()">Prev()</button>
                 <button class="btn btn-info" ng-click="slickConfig.method.slickNext()">Next()</button>
-                <button class="btn btn-info" ng-click="slideAdd('number')">Add()</button>
+                <button class="btn btn-info" ng-click="slideAdd2('number')">Add()</button>
                 <button class="btn btn-info" ng-click='slickConfig.method.slickRemove(3)'>Remove(3)</button>
                 <button class="btn btn-info" ng-click='slickConfig.method.slickPlay()'>Play()</button>
                 <button class="btn btn-info" ng-click='slickConfig.method.slickPause()'>Pause()</button>
@@ -29,7 +32,7 @@
             <h2 class="content-title">Multiple Items</h2>
             <slick class="slider" settings="slickConfig2" data="number">
                 <div ng-repeat="i in number">
-                    <div class="" ng-include="'tpl.html'"></div>
+                    <div class="" ng-include="'tpl2.html'"></div>
                 </div>
             </slick>
 
