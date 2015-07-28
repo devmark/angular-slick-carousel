@@ -5,9 +5,9 @@ angular-slick-carousel
 
 Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 
-Release: 3.0.2
+Release: 3.0.5
 ------------
-- fixed dynamic data
+- fixed dynamic data, discussed [below](#Slide Data) in detail
 
 
 Usage
@@ -81,16 +81,17 @@ define an empty control handle on scope:
 3. Pass it as the value to control attribute. Now, you can call any plugin methods
 as shown in the example.
 
-  ```html
-  <button ng-click="slickConfig.method.slickGoTo(2)">slickGoTo(2)</button>
-  <button ng-click="slickConfig.method.slickPrev()">slickPrev()</button>
-  <button ng-click="slickConfig.method.slickNext()">slickNext()</button>
-  <button ng-click='slickConfig.method.slickAdd("<div>New</div>")'>slickAdd()</button>
-  <button ng-click='slickConfig.method.slickRemove(3)'>slickRemove(3)</button>
-  <button ng-click='slickConfig.method.slickPlay()'>slickPlay()</button>
-  <button ng-click='slickConfig.method.slickPause()'>slickPause()</button>
-  ```
-### Slide change ###
+```html
+<button ng-click="slickConfig.method.slickGoTo(2)">slickGoTo(2)</button>
+<button ng-click="slickConfig.method.slickPrev()">slickPrev()</button>
+<button ng-click="slickConfig.method.slickNext()">slickNext()</button>
+<button ng-click='slickConfig.method.slickAdd("<div>New</div>")'>slickAdd()</button>
+<button ng-click='slickConfig.method.slickRemove(3)'>slickRemove(3)</button>
+<button ng-click='slickConfig.method.slickPlay()'>slickPlay()</button>
+<button ng-click='slickConfig.method.slickPause()'>slickPause()</button>
+```
+
+### Slide Data ###
 For change slide content, you have to set `data` attribute AND `ng-if`
 
 - controller:
