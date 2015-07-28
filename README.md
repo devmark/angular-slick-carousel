@@ -7,7 +7,7 @@ Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 
 Release: 3.0.5
 ------------
-- fixed dynamic data, discussed [below](#Slide Data) in detail
+- fixed dynamic data, discussed [below](#SlideData) in detail
 
 
 Usage
@@ -91,7 +91,7 @@ as shown in the example.
 <button ng-click='slickConfig.method.slickPause()'>slickPause()</button>
 ```
 
-### Slide Data ###
+### SlideData ###
 For change slide content, you have to set `data` attribute AND `ng-if`
 
 - controller:
