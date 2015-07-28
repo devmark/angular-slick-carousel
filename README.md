@@ -43,7 +43,7 @@ as either a `<div>` attribute or a `<slick>` element.
     
     <slick 
         settings="slickConfig"
-        data="number">
+        data="number" ng-if="numberLoaded">
     </slick>
 ```
 
@@ -90,14 +90,20 @@ as shown in the example.
   <button ng-click='slickConfig.method.slickPlay()'>slickPlay()</button>
   <button ng-click='slickConfig.method.slickPause()'>slickPause()</button>
   ```
-### Data ###
-
-If you gonna make a ng-repeat for slick. 
-you have to set `data` attribute
+### Slide change ###
+For change slide content, you have to set `data` attribute AND `ng-if`
 
 - controller:
 ```js
     $scope.number = [{label: 1}, {label: 2}, {label: 3}, {label: 4}, {label: 5}, {label: 6}, {label: 7}, {label: 8}];
+    $scope.numberLoaded = true;
+    $scope.numberUpdate = function(){
+        $scope.numberLoaded = false; //disable slick
+        
+        //number update
+        
+        $scope.numberLoaded = true; //enable slick
+    };
 ```
 - html:
 ```html
@@ -105,16 +111,12 @@ you have to set `data` attribute
         <h3>{{ i.label }}</h3>
     </script>
     
-    <slick data="number">
+    <slick data="number" ng-if="numberLoaded">
         <div ng-repeat="i in number">
             <div class="" ng-include="'tpl.html'"></div>
         </div>
     </slick>
 ```
-- change data? 2 options
- 1. use slick event handler: ```slickAdd("<div>HTML</div>")``` function
- 2. update data object directly.
-
 
 ### Global config ###
   ```js
