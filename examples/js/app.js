@@ -26,7 +26,7 @@ angular.module('slickExampleApp', ['slickCarousel', 'ngRoute'])
         };
 
         $scope.slickConfig = {
-            autoplay:true,
+            autoplay: true,
             infinite: true,
             autoplaySpeed: 3000,
             method: {},

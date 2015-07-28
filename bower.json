@@ -16,7 +16,7 @@
   ],
   "license": "MIT",
   "main": [
-    "dist/angular-slick.min.js",
+    "dist/angular-slick.js",
     "bower.json"
   ],
   "dependencies": {
