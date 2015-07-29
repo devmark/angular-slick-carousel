@@ -142,6 +142,10 @@ angular
                         }, 1);
                     };
 
+                    scope.$on('$destroy', function() {
+                      destroy();
+                    });
+                        
                     scope.$watch('settings', function (newVal, oldVal) {
                         if (newVal !== null) {
                             return destroyAndInit();
