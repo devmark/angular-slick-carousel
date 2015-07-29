@@ -2,16 +2,7 @@
  * angular-slick-carousel
  * DevMark <hc.devmark@gmail.com>,Karan Batra-Daitch <karanganesha04@gmail.com>
  * https://github.com/devmark/angular-slick-carousel
- * Version: 3.0.5 - 2015-07-29T01:32:14.230Z
- * License: MIT
- */
-
-
-/*!
- * angular-slick-carousel
- * DevMark <hc.devmark@gmail.com>,Karan Batra-Daitch <karanganesha04@gmail.com>
- * https://github.com/devmark/angular-slick-carousel
- * Version: 3.0.5 - 2015-07-28T10:42:08.174Z
+ * Version: 3.0.5 - 2015-07-29T01:38:49.739Z
  * License: MIT
  */
 
