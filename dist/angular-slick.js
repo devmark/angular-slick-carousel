@@ -2,7 +2,7 @@
  * angular-slick-carousel
  * DevMark <hc.devmark@gmail.com>,Karan Batra-Daitch <karanganesha04@gmail.com>
  * https://github.com/devmark/angular-slick-carousel
- * Version: 3.0.5 - 2015-07-29T01:38:49.739Z
+ * Version: 3.0.5 - 2015-07-29T09:33:16.699Z
  * License: MIT
  */
 
@@ -58,7 +58,7 @@ angular
                             var slickness = angular.element(element);
 
                             if (angular.element(element).hasClass('slick-initialized')) {
-                                slickness.slick('getSlick');
+                                return slickness.slick('getSlick');
                             } else {
                                 slickness.slick(options);
                             }

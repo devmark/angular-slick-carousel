@@ -49,7 +49,7 @@ angular
                             var slickness = angular.element(element);
 
                             if (angular.element(element).hasClass('slick-initialized')) {
-                                slickness.slick('getSlick');
+                                return slickness.slick('getSlick');
                             } else {
                                 slickness.slick(options);
                             }
