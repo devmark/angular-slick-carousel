@@ -127,6 +127,17 @@ angular
                             if (angular.element(element).hasClass('slick-initialized')) {
                                 return slickness.slick('getSlick');
                             } else {
+
+                                // Event
+                                slickness.on('init', function (event, slick) {
+                                    if (typeof options.event.init !== 'undefined') {
+                                        options.event.init(event, slick);
+                                    }
+                                    if (currentIndex != null) {
+                                        return slick.slideHandler(currentIndex);
+                                    }
+                                });
+
                                 slickness.slick(options);
                             }
                             scope.internalControl = options.method || {};
@@ -155,6 +166,12 @@ angular
                                 }
                             });
 
+                            slickness.on('reInit', function (event, slick) {
+                                if (typeof options.event.reInit !== 'undefined') {
+                                    options.event.reInit(event, slick);
+                                }
+                            });
+
                             if (typeof options.event.breakpoint !== 'undefined') {
                                 slickness.on('breakpoint', function (event, slick, breakpoint) {
                                     options.event.breakpoint(event, slick, breakpoint);
@@ -171,20 +188,6 @@ angular
                                 });
                             }
 
-                            slickness.on('init', function (event, slick) {
-                                if (typeof options.event.init !== 'undefined') {
-                                    options.event.init(event, slick);
-                                }
-                                if (currentIndex != null) {
-                                    return slick.slideHandler(currentIndex);
-                                }
-                            });
-
-                            if (typeof options.event.reInit !== 'undefined') {
-                                slickness.on('reInit', function (event, slick) {
-                                    options.event.reInit(event, slick);
-                                });
-                            }
                             if (typeof options.event.setPosition !== 'undefined') {
                                 slickness.on('setPosition', function (event, slick) {
                                     options.event.setPosition(event, slick);
