@@ -2,7 +2,7 @@
  * angular-slick-carousel
  * DevMark <hc.devmark@gmail.com>,Karan Batra-Daitch <karanganesha04@gmail.com>
  * https://github.com/devmark/angular-slick-carousel
- * Version: 3.0.7 - 2015-08-01T16:11:26.568Z
+ * Version: 3.0.9 - 2015-08-03T14:41:00.415Z
  * License: MIT
  */
 
@@ -217,7 +217,7 @@ angular
                         }, 1);
                     };
 
-                    scope.$on('$destroy', function () {
+                    element.one('$destroy', function () {
                         destroy();
                     });
 

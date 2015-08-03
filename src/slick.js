@@ -208,7 +208,7 @@ angular
                         }, 1);
                     };
 
-                    scope.$on('$destroy', function () {
+                    element.one('$destroy', function () {
                         destroy();
                     });
 
