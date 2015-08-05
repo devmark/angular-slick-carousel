@@ -62,6 +62,9 @@ angular
                 },
                 restrict: 'AE',
                 link: function (scope, element, attr) {
+                    //hide slider
+                    angular.element(element).css('display', 'none');
+
                     var options, initOptions, destroy, init, destroyAndInit, currentIndex = 0;
 
                     initOptions = function () {
@@ -121,12 +124,14 @@ angular
 
                     init = function () {
                         return $timeout(function () {
+
                             initOptions();
                             var slickness = angular.element(element);
 
                             if (angular.element(element).hasClass('slick-initialized')) {
                                 return slickness.slick('getSlick');
                             } else {
+                                angular.element(element).css('display', 'block');
 
                                 // Event
                                 slickness.on('init', function (event, slick) {
@@ -140,6 +145,7 @@ angular
 
                                 slickness.slick(options);
                             }
+
                             scope.internalControl = options.method || {};
 
                             // Method
@@ -199,6 +205,7 @@ angular
                                 });
                             }
 
+
                         });
                     };
 
@@ -206,27 +213,18 @@ angular
                         if (angular.element(element).hasClass('slick-initialized')) {
                             destroy();
                         }
-                        $timeout(function () {
-                            init();
-                        }, 1);
+                        init();
                     };
 
                     element.one('$destroy', function () {
                         destroy();
                     });
 
-                    scope.$watch('settings', function (newVal, oldVal) {
+                    return scope.$watch('settings', function (newVal, oldVal) {
                         if (newVal !== null) {
                             return destroyAndInit();
                         }
                     }, true);
-
-                    return scope.$watch('data', function (newVal, oldVal) {
-                        if (newVal != null) {
-                            return destroyAndInit();
-                        }
-                    }, true);
-
 
                 }
             };
