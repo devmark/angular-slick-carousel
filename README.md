@@ -5,7 +5,7 @@ angular-slick-carousel
 
 Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 
-Release: 3.0.7
+Release: 3.0.9
 ------------
 - fixed attribute data, slick version request `1.5.8`
 
