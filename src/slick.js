@@ -117,8 +117,11 @@ angular
 
                     destroy = function () {
                         var slickness = angular.element(element);
-                        slickness.remove('slick-list');
-                        slickness.slick('unslick');
+                        if (slickness.hasClass('slick-initialized')) {
+                            slickness.remove('slick-list');
+                            slickness.slick('unslick');
+                        }
+
                         return slickness;
                     };
 
@@ -210,9 +213,7 @@ angular
                     };
 
                     destroyAndInit = function () {
-                        if (angular.element(element).hasClass('slick-initialized')) {
-                            destroy();
-                        }
+                        destroy();
                         init();
                     };
 
