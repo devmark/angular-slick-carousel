@@ -1,5 +1,5 @@
 {
-  "name": "angularSlickCarousel",
+  "name": "angular-slick-carousel",
   "version": "3.0.10",
   "main": "dist/angular-slick.js",
   "dependencies": {
