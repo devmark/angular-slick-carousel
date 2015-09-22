@@ -1,8 +1,8 @@
 /*!
  * angular-slick-carousel
- * DevMark <hc.devmark@gmail.com>,Karan Batra-Daitch <karanganesha04@gmail.com>
+ * DevMark <hc.devmark@gmail.com>
  * https://github.com/devmark/angular-slick-carousel
- * Version: 3.0.9 - 2015-08-03T15:13:14.090Z
+ * Version: 3.0.10 - 2015-09-22T14:25:55.645Z
  * License: MIT
  */
 
@@ -71,6 +71,9 @@ angular
                 },
                 restrict: 'AE',
                 link: function (scope, element, attr) {
+                    //hide slider
+                    angular.element(element).css('display', 'none');
+
                     var options, initOptions, destroy, init, destroyAndInit, currentIndex = 0;
 
                     initOptions = function () {
@@ -123,19 +126,24 @@ angular
 
                     destroy = function () {
                         var slickness = angular.element(element);
-                        slickness.remove('slick-list');
-                        slickness.slick('unslick');
+                        if (slickness.hasClass('slick-initialized')) {
+                            slickness.remove('slick-list');
+                            slickness.slick('unslick');
+                        }
+
                         return slickness;
                     };
 
                     init = function () {
                         return $timeout(function () {
+
                             initOptions();
                             var slickness = angular.element(element);
 
                             if (angular.element(element).hasClass('slick-initialized')) {
                                 return slickness.slick('getSlick');
                             } else {
+                                angular.element(element).css('display', 'block');
 
                                 // Event
                                 slickness.on('init', function (event, slick) {
@@ -149,6 +157,7 @@ angular
 
                                 slickness.slick(options);
                             }
+
                             scope.internalControl = options.method || {};
 
                             // Method
@@ -208,34 +217,24 @@ angular
                                 });
                             }
 
+
                         });
                     };
 
                     destroyAndInit = function () {
-                        if (angular.element(element).hasClass('slick-initialized')) {
-                            destroy();
-                        }
-                        $timeout(function () {
-                            init();
-                        }, 1);
+                        destroy();
+                        init();
                     };
 
                     element.one('$destroy', function () {
                         destroy();
                     });
 
-                    scope.$watch('settings', function (newVal, oldVal) {
+                    return scope.$watch('settings', function (newVal, oldVal) {
                         if (newVal !== null) {
                             return destroyAndInit();
                         }
                     }, true);
-
-                    return scope.$watch('data', function (newVal, oldVal) {
-                        if (newVal != null) {
-                            return destroyAndInit();
-                        }
-                    }, true);
-
 
                 }
             };
