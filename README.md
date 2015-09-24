@@ -5,10 +5,6 @@ angular-slick-carousel
 
 Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 
-Release: 3.0.9
-------------
-- fixed attribute data, slick version request `1.5.8`
-
 Usage
 -----
 
@@ -90,7 +86,7 @@ as shown in the example.
 <button ng-click='slickConfig.method.slickPause()'>slickPause()</button>
 ```
 
-### SlideData ###
+### Slide data ###
 For change slide content, you have to set `data` attribute AND `ng-if`
 
 - controller:
@@ -125,7 +121,4 @@ For change slide content, you have to set `data` attribute AND `ng-if`
         slickCarouselConfig.autoplay = false;
     }])
   ```
-TODO
------
-- Create unit test
 
