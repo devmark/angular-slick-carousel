@@ -37,8 +37,7 @@ as either a `<div>` attribute or a `<slick>` element.
     </slick>
     
     <slick 
-        settings="slickConfig"
-        data="number" ng-if="numberLoaded">
+        settings="slickConfig" ng-if="numberLoaded">
     </slick>
 ```
 
@@ -61,14 +60,13 @@ $scope.slickConfig = {
     }
 };
 ```
-`data`: object for ng-repeat data, discussed [below](#data) in detail
 
 ### Method ###
 1. All the functions in the plugin are exposed through a control
 attribute.
 2. To utilize this architecture, and have two-way data-binding,
 define an empty control handle on scope:
-  ```js
+```js
     $scope.slickConfig = {
         method: {}
     }
@@ -87,18 +85,18 @@ as shown in the example.
 ```
 
 ### Slide data ###
-For change slide content, you have to set `data` attribute AND `ng-if`
+For change slide content, you have to set `ng-if` to destroy and init it
 
 - controller:
 ```js
     $scope.number = [{label: 1}, {label: 2}, {label: 3}, {label: 4}, {label: 5}, {label: 6}, {label: 7}, {label: 8}];
     $scope.numberLoaded = true;
     $scope.numberUpdate = function(){
-        $scope.numberLoaded = false; //disable slick
+        $scope.numberLoaded = false; // disable slick
         
         //number update
         
-        $scope.numberLoaded = true; //enable slick
+        $scope.numberLoaded = true; // enable slick
     };
 ```
 - html:
@@ -107,7 +105,7 @@ For change slide content, you have to set `data` attribute AND `ng-if`
         <h3>{{ i.label }}</h3>
     </script>
     
-    <slick data="number" ng-if="numberLoaded">
+    <slick ng-if="numberLoaded">
         <div ng-repeat="i in number">
             <div class="" ng-include="'tpl.html'"></div>
         </div>
