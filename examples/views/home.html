@@ -12,7 +12,7 @@
                 <h3>{{ i }}</h3>
             </script>
 
-            <slick class="slider" settings="slickConfig" ng-if="slickConfig1Loaded" data="number1" dots="true">
+            <slick class="slider" settings="slickConfig" ng-if="slickConfig1Loaded" dots="true">
                 <div ng-repeat="i in number1 track by $index">
                     <div class="" ng-include="'tpl2.html'"></div>
                 </div>
@@ -31,14 +31,14 @@
             </div>
 
             <h2 class="content-title">Multiple Items</h2>
-            <slick class="slider" settings="slickConfig2" data="number2" ng-if="slickConfig2Loaded">
+            <slick class="slider" settings="slickConfig2" ng-if="slickConfig2Loaded">
                 <div ng-repeat="i in number2  track by $index">
                     <div class="" ng-include="'tpl.html'"></div>
                 </div>
             </slick>
 
             <h2 class="content-title">Responsive Display</h2>
-            <slick class="slider" settings="slickConfig3" data="number3" ng-if="slickConfig3Loaded">
+            <slick class="slider" settings="slickConfig3" ng-if="slickConfig3Loaded">
                 <div ng-repeat="i in number2">
                     <div class="" ng-include="'tpl.html'"></div>
                 </div>
@@ -47,7 +47,7 @@
 
             <h2 class="content-title">Variable Width</h2>
 
-            <slick class="slider" settings="slickConfig4" data="number4" ng-if="slickConfig4Loaded">
+            <slick class="slider" settings="slickConfig4" ng-if="slickConfig4Loaded">
                 <div ng-repeat="i in number4">
                     <div style="width:{{ i.label }}px;height:100px" ng-include="'tpl.html'"></div>
                 </div>
