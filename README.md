@@ -120,3 +120,20 @@ For change slide content, you have to set `ng-if` to destroy and init it
     }])
   ```
 
+### FAQ ###
+Q: After change data, could i keep the current slide index?
+A: For this directive, this will destroy and init slick when updating data. You could get current index by event. 
+example:
+```js
+    $scope.currentIndex = 0;
+    $scope.slickConfig = {
+        event: {
+            afterChange: function (event, slick, currentSlide, nextSlide) {
+              $scope.currentIndex = currentSlide; // save current index each time
+            }
+            init: function (event, slick) {
+              slick.slickGoTo($scope.currentIndex); // slide to correct index when init
+            }
+        }
+    };
+```
