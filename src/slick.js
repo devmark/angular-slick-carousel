@@ -143,8 +143,9 @@ angular
                   return slick.slideHandler(currentIndex);
                 }
               });
-
-              slickness.slick(options);
+              $timeout(function() {
+                slickness.slick(options);
+              });
             }
 
             scope.internalControl = options.method || {};
