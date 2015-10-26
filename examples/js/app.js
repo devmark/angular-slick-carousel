@@ -31,6 +31,7 @@ angular.module('slickExampleApp', ['slickCarousel', 'ngRoute'])
     };
     $scope.slickCurrentIndex = 0;
     $scope.slickConfig = {
+      dots: true,
       autoplay: true,
       initialSlide: 3,
       infinite: true,
