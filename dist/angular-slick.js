@@ -2,7 +2,7 @@
  * angular-slick-carousel
  * DevMark <hc.devmark@gmail.com>
  * https://github.com/devmark/angular-slick-carousel
- * Version: 3.0.11 - 2015-09-25T12:36:39.625Z
+ * Version: 3.1.1 - 2015-10-26T14:22:13.640Z
  * License: MIT
  */
 
@@ -90,7 +90,7 @@ angular
               centerPadding: scope.centerPadding || '50px',
               cssEase: scope.cssEase || 'ease',
               customPaging: attr.customPaging ? customPaging : void 0,
-              dots: scope.dots === 'true',
+              dots: attr.dots || scope.dots === 'true',
               draggable: scope.draggable !== 'false',
               fade: scope.fade === 'true',
               focusOnSelect: scope.focusOnSelect === 'true',
@@ -105,7 +105,7 @@ angular
               respondTo: scope.respondTo != null ? scope.respondTo : 'window',
               responsive: scope.responsive || void 0,
               rows: scope.rows != null ? parseInt(scope.rows, 10) : 1,
-              slide: scope.slide || 'div',
+              slide: scope.slide || '',
               slidesPerRow: scope.slidesPerRow != null ? parseInt(scope.slidesPerRow, 10) : 1,
               slidesToShow: scope.slidesToShow != null ? parseInt(scope.slidesToShow, 10) : 1,
               slidesToScroll: scope.slidesToScroll != null ? parseInt(scope.slidesToScroll, 10) : 1,
@@ -152,8 +152,9 @@ angular
                   return slick.slideHandler(currentIndex);
                 }
               });
-
-              slickness.slick(options);
+              $timeout(function() {
+                slickness.slick(options);
+              });
             }
 
             scope.internalControl = options.method || {};
