@@ -2,7 +2,7 @@
  * angular-slick-carousel
  * DevMark <hc.devmark@gmail.com>
  * https://github.com/devmark/angular-slick-carousel
- * Version: 3.1.1 - 2015-10-26T14:22:13.640Z
+ * Version: 3.1.2 - 2015-11-24T02:43:00.279Z
  * License: MIT
  */
 
@@ -83,13 +83,15 @@ angular
               autoplaySpeed: scope.autoplaySpeed != null ? parseInt(scope.autoplaySpeed, 10) : 3000,
               arrows: scope.arrows !== 'false',
               asNavFor: scope.asNavFor ? scope.asNavFor : void 0,
-              appendArrows: scope.appendArrows ? $(scope.appendArrows) : $(element),
-              prevArrow: scope.prevArrow ? $(scope.prevArrow) : void 0,
-              nextArrow: scope.nextArrow ? $(scope.nextArrow) : void 0,
+              appendArrows: scope.appendArrows ? angular.element(scope.appendArrows) : angular.element(element),
+              prevArrow: scope.prevArrow ? angular.element(scope.prevArrow) : void 0,
+              nextArrow: scope.nextArrow ? angular.element(scope.nextArrow) : void 0,
               centerMode: scope.centerMode === 'true',
               centerPadding: scope.centerPadding || '50px',
               cssEase: scope.cssEase || 'ease',
-              customPaging: attr.customPaging ? customPaging : void 0,
+              customPaging: attr.customPaging ? function (slick, index) {
+                return scope.customPaging({ slick: slick, index: index });
+              } : void 0,
               dots: attr.dots || scope.dots === 'true',
               draggable: scope.draggable !== 'false',
               fade: scope.fade === 'true',

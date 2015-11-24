@@ -80,7 +80,9 @@ angular
               centerMode: scope.centerMode === 'true',
               centerPadding: scope.centerPadding || '50px',
               cssEase: scope.cssEase || 'ease',
-              customPaging: attr.customPaging ? customPaging : void 0,
+              customPaging: attr.customPaging ? function (slick, index) {
+                return scope.customPaging({ slick: slick, index: index });
+              } : void 0,
               dots: attr.dots || scope.dots === 'true',
               draggable: scope.draggable !== 'false',
               fade: scope.fade === 'true',
