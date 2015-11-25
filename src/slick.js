@@ -16,6 +16,7 @@ angular
       return {
         scope: {
           settings: '=',
+          enabled: '@',
           accessibility: '@',
           adaptiveHeight: '@',
           autoplay: '@',
@@ -68,6 +69,7 @@ angular
 
           initOptions = function () {
             options = angular.extend(angular.copy(slickCarouselConfig), {
+              enabled: scope.enabled !== 'false',
               accessibility: scope.accessibility !== 'false',
               adaptiveHeight: scope.adaptiveHeight === 'true',
               autoplay: scope.autoplay === 'true',
@@ -132,10 +134,17 @@ angular
             var slickness = angular.element(element);
 
             if (angular.element(element).hasClass('slick-initialized')) {
-              return slickness.slick('getSlick');
+              if(options.enabled) {
+                return slickness.slick('getSlick');
+              } else {
+                destroy();
+              }
             } else {
               angular.element(element).css('display', 'block');
 
+              if(!options.enabled) {
+                return;
+              }
               // Event
               slickness.on('init', function (event, slick) {
                 if (typeof options.event.init !== 'undefined') {
