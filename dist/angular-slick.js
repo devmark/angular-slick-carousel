@@ -2,7 +2,7 @@
  * angular-slick-carousel
  * DevMark <hc.devmark@gmail.com>
  * https://github.com/devmark/angular-slick-carousel
- * Version: 3.1.3 - 2015-11-25T09:13:43.590Z
+ * Version: 3.1.4 - 2015-11-25T13:46:21.391Z
  * License: MIT
  */
 
@@ -26,6 +26,7 @@ angular
         scope: {
           settings: '=',
           enabled: '@',
+          mousewheel: '@',
           accessibility: '@',
           adaptiveHeight: '@',
           autoplay: '@',
@@ -79,6 +80,7 @@ angular
           initOptions = function () {
             options = angular.extend(angular.copy(slickCarouselConfig), {
               enabled: scope.enabled !== 'false',
+              mousewheel: scope.mousewheel === 'true',
               accessibility: scope.accessibility !== 'false',
               adaptiveHeight: scope.adaptiveHeight === 'true',
               autoplay: scope.autoplay === 'true',
@@ -164,7 +166,18 @@ angular
                 }
               });
               $timeout(function() {
-                slickness.slick(options);
+                var slickInstance = slickness.slick(options);
+                if(options.mousewheel) {
+                  slickInstance.mousewheel(function(e) {
+                    e.preventDefault();
+                    if (e.deltaY < 0) {
+                      slickness.slick('slickNext');
+                    }
+                    else {
+                      slickness.slick('slickPrev');
+                    }
+                  });
+                }
               });
             }
 

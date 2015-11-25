@@ -44,12 +44,14 @@ as either a `<div>` attribute or a `<slick>` element.
 ### Attributes & Event ###
 `settings`: optional `Object` containing any of the slick options. Consult [here](http://kenwheeler.github.io/slick/#settings).
  - `enabled` should slick be enabled or not. Default to true. Example below
+ - `mousewheel` use mousewheel to navigate? Default to false.
  - `method` optional containing slick method. discussed [below](#method) in detail
  - `event` optional containing slick event
 
 ```javascript
 $scope.slickConfig = {
     enabled: true,
+    mousewheel: false,
     autoplay: true,
     draggable: false,  
     autoplaySpeed: 3000,
