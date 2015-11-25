@@ -24,6 +24,7 @@ describe('angular slick testing', function () {
   function compileTemplate(template) {
     var el = $compile(angular.element(template))(scope);
     scope.$digest();
+    $timeout.flush();
     return el;
   }
 
@@ -80,6 +81,7 @@ describe('angular slick testing', function () {
 
     scope.slickConfig.autoplay = false;
     scope.$digest();
+    $timeout.flush();
     expect(scope.isDestroy).toBe(true);
     expect(element.hasClass('slick-initialized')).toBe(true);
 
