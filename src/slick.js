@@ -17,6 +17,7 @@ angular
         scope: {
           settings: '=',
           enabled: '@',
+          mousewheel: '@',
           accessibility: '@',
           adaptiveHeight: '@',
           autoplay: '@',
@@ -70,6 +71,7 @@ angular
           initOptions = function () {
             options = angular.extend(angular.copy(slickCarouselConfig), {
               enabled: scope.enabled !== 'false',
+              mousewheel: scope.mousewheel === 'true',
               accessibility: scope.accessibility !== 'false',
               adaptiveHeight: scope.adaptiveHeight === 'true',
               autoplay: scope.autoplay === 'true',
@@ -155,7 +157,18 @@ angular
                 }
               });
               $timeout(function() {
-                slickness.slick(options);
+                var slickInstance = slickness.slick(options);
+                if(options.mousewheel) {
+                  slickInstance.mousewheel(function(e) {
+                    e.preventDefault();
+                    if (e.deltaY < 0) {
+                      slickness.slick('slickNext');
+                    }
+                    else {
+                      slickness.slick('slickPrev');
+                    }
+                  });
+                }
               });
             }
 
