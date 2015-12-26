@@ -85,7 +85,7 @@ angular
               customPaging: attr.customPaging ? function (slick, index) {
                 return scope.customPaging({slick: slick, index: index});
               } : void 0,
-              dots: attr.dots || scope.dots === 'true',
+              dots: scope.dots === 'true',
               draggable: scope.draggable !== 'false',
               fade: scope.fade === 'true',
               focusOnSelect: scope.focusOnSelect === 'true',
