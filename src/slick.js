@@ -245,7 +245,7 @@ angular
           });
 
           return scope.$watch('settings', function (newVal, oldVal) {
-            if (newVal !== null) {
+            if (typeof newVal !== 'undefined' && newVal !== null) {
               return destroyAndInit();
             }
           }, true);
