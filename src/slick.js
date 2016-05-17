@@ -140,8 +140,6 @@ angular
                 destroy();
               }
             } else {
-              angular.element(element).css('display', 'block');
-
               if (!options.enabled) {
                 return;
               }
@@ -154,7 +152,9 @@ angular
                   return slick.slideHandler(currentIndex);
                 }
               });
+
               $timeout(function () {
+                angular.element(element).css('display', 'block');
                 slickness.slick(options);
               });
             }
