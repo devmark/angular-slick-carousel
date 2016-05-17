@@ -76,15 +76,15 @@ describe('angular slick testing', function () {
         <div> i </div>\
       </slick>');
     scope.$digest();
-
     expect(element.hasClass('slick-initialized')).toBe(true);
 
-    scope.slickConfig.autoplay = false;
-    scope.$digest();
-    $timeout.flush();
-    expect(scope.isDestroy).toBe(true);
-    expect(element.hasClass('slick-initialized')).toBe(true);
-
+    $timeout(function () {
+      scope.slickConfig.autoplay = false;
+      scope.$digest();
+      $timeout.flush();
+      expect(scope.isDestroy).toBe(true);
+      expect(element.hasClass('slick-initialized')).toBe(true);
+    });
   });
 
 });
