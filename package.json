@@ -1,6 +1,6 @@
 {
   "name": "angular-slick-carousel",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "main": "dist/angular-slick.js",
   "repository": {
     "type": "git",

@@ -175,61 +175,79 @@ angular
             slickness.on('afterChange', function (event, slick, currentSlide, nextSlide) {
               currentIndex = currentSlide;
               if (typeof options.event.afterChange !== 'undefined') {
-                scope.$apply(function () {
-                  options.event.afterChange(event, slick, currentSlide, nextSlide);
+                $timeout(function () {
+                  scope.$apply(function () {
+                    options.event.afterChange(event, slick, currentSlide, nextSlide);
+                  });
                 });
               }
             });
 
             slickness.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
               if (typeof options.event.beforeChange !== 'undefined') {
-                scope.$apply(function () {
-                  options.event.beforeChange(event, slick, currentSlide, nextSlide);
+                $timeout(function () {
+                  $timeout(function () {
+                    scope.$apply(function () {
+                      options.event.beforeChange(event, slick, currentSlide, nextSlide);
+                    });
+                  });
                 });
               }
             });
 
             slickness.on('reInit', function (event, slick) {
               if (typeof options.event.reInit !== 'undefined') {
-                scope.$apply(function () {
-                  options.event.reInit(event, slick);
+                $timeout(function () {
+                  scope.$apply(function () {
+                    options.event.reInit(event, slick);
+                  });
                 });
               }
             });
 
             if (typeof options.event.breakpoint !== 'undefined') {
               slickness.on('breakpoint', function (event, slick, breakpoint) {
-                scope.$apply(function () {
-                  options.event.breakpoint(event, slick, breakpoint);
+                $timeout(function () {
+                  scope.$apply(function () {
+                    options.event.breakpoint(event, slick, breakpoint);
+                  });
                 });
               });
             }
             if (typeof options.event.destroy !== 'undefined') {
               slickness.on('destroy', function (event, slick) {
-                scope.$apply(function () {
-                  options.event.destroy(event, slick);
+                $timeout(function () {
+                  scope.$apply(function () {
+                    options.event.destroy(event, slick);
+                  });
                 });
               });
             }
             if (typeof options.event.edge !== 'undefined') {
               slickness.on('edge', function (event, slick, direction) {
-                scope.$apply(function () {
-                  options.event.edge(event, slick, direction);
+                $timeout(function () {
+                  scope.$apply(function () {
+                    options.event.edge(event, slick, direction);
+                  });
                 });
               });
             }
 
             if (typeof options.event.setPosition !== 'undefined') {
               slickness.on('setPosition', function (event, slick) {
-                scope.$apply(function () {
-                  options.event.setPosition(event, slick);
+                $timeout(function () {
+                  scope.$apply(function () {
+                    options.event.setPosition(event, slick);
+                  });
                 });
               });
             }
             if (typeof options.event.swipe !== 'undefined') {
               slickness.on('swipe', function (event, slick, direction) {
-                scope.$apply(function () {
-                  options.event.swipe(event, slick, direction);
+                $timeout(function () {
+                  scope.$apply(function () {
+                    options.event.swipe(event, slick, direction);
+                  });
                 });
               });
             }
