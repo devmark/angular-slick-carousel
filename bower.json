@@ -15,8 +15,7 @@
   ],
   "license": "MIT",
   "main": [
-    "dist/angular-slick.js",
-    "bower.json"
+    "dist/angular-slick.js"
   ],
   "dependencies": {
     "slick-carousel": "~1.6.0",
