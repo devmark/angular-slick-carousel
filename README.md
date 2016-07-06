@@ -181,4 +181,9 @@ Go to your terminal and run:
 python -m SimpleHTTPServer
 
 ```
-You cans see all samples in the folder: examples/index.html
+after this command you will be loading a python Server in you local machine in most the cases loads in the port 8000, you will be able to see the port when the server starts like that: 
+```sh 
+Serving HTTP on 0.0.0.0 port 8000 ...
+```
+
+so you can see the samples with this adress: http://localhost:8000/examples/#/
