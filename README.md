@@ -9,13 +9,14 @@ Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 ## Summary 
 
 - [Usage](#usage)
-- [Why Use?](#attributes&event)
-- [Creator](#enable/disableslick)
+- [Attributes & Event](#attributes&event)
+- [Enable/disable slick](#enable/disableslick)
 - [Method](#method)
 - [Slide data](#slidedata)
 - [Global Config](#globalconfig)
 - [faq](#faq)
 - [Examples](#examples)
+- [Creator](#creator)
 
 
 
@@ -187,3 +188,7 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 ```
 
 so you can see the samples with this adress: http://localhost:8000/examples/#/
+
+
+## Creator
+@devmark
