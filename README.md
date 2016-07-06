@@ -5,7 +5,21 @@ angular-slick-carousel
 
 Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 
-Usage
+
+## Summary 
+
+- [Usage](#usage)
+- [Why Use?](#attributes&event)
+- [Creator](#enable/disableslick)
+- [Method](#method)
+- [Slide data](#slidedata)
+- [Global Config](#globalconfig)
+- [faq](#faq)
+- [Examples](#examples)
+
+
+
+## Usage
 -----
 
 - Using [bower](http://bower.io/) to install it. `bower install angular-slick-carousel`
@@ -41,7 +55,7 @@ as either a `<div>` attribute or a `<slick>` element.
     </slick>
 ```
 
-### Attributes & Event ###
+## Attributes & Event
 `settings`: optional `Object` containing any of the slick options. Consult [here](http://kenwheeler.github.io/slick/#settings).
  - `enabled` should slick be enabled or not. Default to true. Example below
  - `method` optional containing slick method. discussed [below](#method) in detail
@@ -62,7 +76,7 @@ $scope.slickConfig = {
     }
 };
 ```
-### Enable/disable slick ###
+## Enable/disable slick
 Slick can be easily switched on and off by using `enabled` settings flag.
 ```js
     $scope.slickConfig = {
@@ -80,7 +94,7 @@ Slick can be easily switched on and off by using `enabled` settings flag.
 ```
 
 
-### Method ###
+## Method 
 1. All the functions in the plugin are exposed through a control
 attribute.
 2. To utilize this architecture, and have two-way data-binding,
@@ -103,7 +117,7 @@ as shown in the example.
 <button ng-click='slickConfig.method.slickPause()'>slickPause()</button>
 ```
 
-### Slide data ###
+## Slide data 
 For change slide content, you have to set `ng-if` to destroy and init it
 
 - controller:
@@ -131,7 +145,7 @@ For change slide content, you have to set `ng-if` to destroy and init it
     </slick>
 ```
 
-### Global config ###
+## Global config 
   ```js
     config(['slickCarouselConfig', function (slickCarouselConfig) {
         slickCarouselConfig.dots = true;
@@ -139,7 +153,7 @@ For change slide content, you have to set `ng-if` to destroy and init it
     }])
   ```
 
-### FAQ ###
+## FAQ 
 Q: After change data, could i keep the current slide index?
 A: For this directive, this will destroy and init slick when updating data. You could get current index by event. 
 example:
@@ -156,3 +170,15 @@ example:
         }
     };
 ```
+
+## Examples
+
+You need be running a server to see the samples:
+
+Go to your terminal and run: 
+
+```sh
+python -m SimpleHTTPServer
+
+```
+You cans see all samples in the folder: examples/index.html
