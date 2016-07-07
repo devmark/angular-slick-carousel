@@ -20,7 +20,7 @@ angular
     '$timeout', 'slickCarouselConfig', function ($timeout, slickCarouselConfig) {
       var slickMethodList, slickEventList;
       slickMethodList = ['slickGoTo', 'slickNext', 'slickPrev', 'slickPause', 'slickPlay', 'slickAdd', 'slickRemove', 'slickFilter', 'slickUnfilter', 'unslick'];
-      slickEventList = ['afterChange', 'beforeChange', 'breakpoint', 'destroy', 'edge', 'init', 'reInit', 'setPosition', 'swipe'];
+      slickEventList = ['afterChange', 'beforeChange', 'breakpoint', 'destroy', 'edge', 'init', 'reInit', 'setPosition', 'swipe', 'lazyLoaded', 'lazyLoadError'];
 
       return {
         scope: {
@@ -256,6 +256,24 @@ angular
                 $timeout(function () {
                   scope.$apply(function () {
                     options.event.swipe(event, slick, direction);
+                  });
+                });
+              });
+            }
+            if (typeof options.event.lazyLoaded !== 'undefined') {
+              slickness.on('lazyLoaded', function (event, slick, image, imageSource) {
+                $timeout(function () {
+                  scope.$apply(function () {
+                    options.event.lazyLoaded(event, slick, image, imageSource);
+                  });
+                });
+              });
+            }
+            if (typeof options.event.lazyLoadError !== 'undefined') {
+              slickness.on('lazyLoadError', function (event, slick, image, imageSource) {
+                $timeout(function () {
+                  scope.$apply(function () {
+                    options.event.lazyLoadError(event, slick, image, imageSource);
                   });
                 });
               });
