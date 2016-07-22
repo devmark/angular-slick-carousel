@@ -172,12 +172,12 @@ angular
             });
 
             // Event
-            slickness.on('afterChange', function (event, slick, currentSlide, nextSlide) {
+            slickness.on('afterChange', function (event, slick, currentSlide) {
               currentIndex = currentSlide;
               if (typeof options.event.afterChange !== 'undefined') {
                 $timeout(function () {
                   scope.$apply(function () {
-                    options.event.afterChange(event, slick, currentSlide, nextSlide);
+                    options.event.afterChange(event, slick, currentSlide);
                   });
                 });
               }
