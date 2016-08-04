@@ -2,7 +2,7 @@
  * angular-slick-carousel
  * DevMark <hc.devmark@gmail.com>
  * https://github.com/devmark/angular-slick-carousel
- * Version: 3.1.7 - 2016-08-04T06:14:14.291Z
+ * Version: 3.1.7 - 2016-08-04T06:17:55.528Z
  * License: MIT
  */
 
@@ -164,7 +164,7 @@ angular
 
               $timeout(function () {
                 angular.element(element).css('display', 'block');
-                slickness.slick(options);
+                slickness.not('.slick-initialized').slick(options);
               });
             }
 
