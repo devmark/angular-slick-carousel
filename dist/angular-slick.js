@@ -2,7 +2,7 @@
  * angular-slick-carousel
  * DevMark <hc.devmark@gmail.com>
  * https://github.com/devmark/angular-slick-carousel
- * Version: 3.1.6 - 2016-07-22T13:43:55.973Z
+ * Version: 3.1.7 - 2016-08-04T06:14:14.291Z
  * License: MIT
  */
 
@@ -261,9 +261,7 @@ angular
               });
             }
             if (typeof options.event.lazyLoaded !== 'undefined') {
-
               slickness.on('lazyLoaded', function (event, slick, image, imageSource) {
-                console.log('=lazyLoadedlazyLoadedlazyLoaded');
                 $timeout(function () {
                   scope.$apply(function () {
                     options.event.lazyLoaded(event, slick, image, imageSource);
@@ -292,7 +290,7 @@ angular
           });
 
           return scope.$watch('settings', function (newVal, oldVal) {
-            if (typeof newVal !== 'undefined' && newVal !== null) {
+            if (newVal !== null) {
               return destroyAndInit();
             }
           }, true);
