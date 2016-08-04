@@ -155,7 +155,7 @@ angular
 
               $timeout(function () {
                 angular.element(element).css('display', 'block');
-                slickness.slick(options);
+                slickness.not('.slick-initialized').slick(options);
               });
             }
 
