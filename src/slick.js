@@ -68,7 +68,7 @@ angular
           var options, initOptions, destroy, init, destroyAndInit, currentIndex;
 
           initOptions = function () {
-            options = angular.extend(angular.copy(slickCarouselConfig), {
+            options = angular.extend({
               enabled: scope.enabled !== 'false',
               accessibility: scope.accessibility !== 'false',
               adaptiveHeight: scope.adaptiveHeight === 'true',
@@ -114,7 +114,7 @@ angular
               vertical: scope.vertical === 'true',
               verticalSwiping: scope.verticalSwiping === 'true',
               rtl: scope.rtl === 'true'
-            }, scope.settings);
+            }, angular.copy(slickCarouselConfig), scope.settings);
 
           };
 
