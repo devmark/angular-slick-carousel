@@ -1,22 +1,32 @@
+//  *********************************************************************
+//  =app
+//
+//  Author : @douglasdeodato
+//  Project: angular-slick-carousel
+//  Date   : 24/08/2016
+//  Version: package.json
+//  *********************************************************************
+
+
 @font-face {
     font-family: 'Pacifico';
-    src: url('pacifico.eot');
-    src: url('pacifico.eot?#iefix') format('embedded-opentype'),
-    url('pacifico.woff') format('woff'),
-    url('pacifico.ttf') format('truetype'),
-    url('pacifico.svg#Pacifico') format('svg');
+    src: url('#{$slick-font-path}pacifico.eot');
+    src: url('#{$slick-font-path}pacifico.eot?#iefix') format('embedded-opentype'),
+    url('#{$slick-font-path}pacifico.woff') format('woff'),
+    url('#{$slick-font-path}pacifico.ttf') format('truetype'),
+    url('#{$slick-font-path}pacifico.svg#Pacifico') format('svg');
 }
 
 .header {
     padding: 20px 0px;
     & .title {
-    color: #3498db;
+    color: palette(blue);
     font-size: 48px;
     line-height: 100px;
     font-family: 'Pacifico';
     }
     & .sub-title {
-        color: #555;
+        color: $grey;
         font-size: 12px;
         font-style: italic;
         font-weight: 400;
@@ -27,11 +37,11 @@
 
 
 .blue {
-    background: #3498db;
-    color: #fff;
+    background: palette(blue);
+    color: $white;
     h3 {
-    background: #fff;
-    color: #3498db;
+    background: $white;
+    color: palette(blue);
     font-size: 36px;
     line-height: 100px;
     margin: 10px;
@@ -55,13 +65,13 @@
 .footer {
     padding: 20px 0px;
     .title {
-    color: #3498db;
+    color: palette(blue);
     font-size: 48px;
     line-height: 100px;
     font-family: 'Pacifico';
 }
 .sub-title {
-    color: #555;
+    color: $grey;
     font-size: 12px;
     font-style: italic;
     font-weight: 400;

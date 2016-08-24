@@ -1,0 +1,28 @@
+//  *********************************************************************
+//  =main config
+//
+//  Author : @douglasdeodato
+//  Project: angular-slick-carousel
+//  Date   : 24/08/2016
+//  Version: package.json
+//  *********************************************************************
+
+$slick-font-path:        "/examples/fonts/" !default;
+
+
+// Color Palette Modifiers
+
+$blue:#3498db;
+$white:#fff;
+$grey: #555;
+
+$color-palettes: (
+    blue: (
+       x-light     : #4b8cff,
+       light       : #9cc0ff,
+       base        : $blue,
+       light-dark  : #146aff,
+       dark        : #0355C6,
+       x-dark      : #2271fd,
+    ),
+);

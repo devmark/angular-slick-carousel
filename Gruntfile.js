@@ -5,7 +5,7 @@
     			//src ===============================
     			var src;
 				config.src = src = {
-					 sassMain     	 : 'scss/app.scss',
+					 sassMain     	 : 'scss/main.scss',
 					 distFolder		 : 'examples/css/app.dist.css',
 					 devFolder		 : 'examples/css/app.dev.css',
 					 sassFolder		 : 'scss/**/*.scss',
