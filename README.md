@@ -9,11 +9,11 @@ Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 ## Summary 
 
 - [Usage](#usage)
-- [Attributes & Event](#attributes&event)
-- [Enable/disable slick](#enable/disableslick)
+- [Attributes & Event](#attributes--event)
+- [Enable/disable slick](#enabledisable-slick)
 - [Method](#method)
-- [Slide data](#slidedata)
-- [Global Config](#globalconfig)
+- [Slide data](#slide-data)
+- [Global Config](#global-config)
 - [faq](#faq)
 - [Examples](#examples)
 - [Creator](#creator)
@@ -191,4 +191,4 @@ so you can see the samples with this adress: http://localhost:8000/examples/#/
 
 
 ## Creator
-@devmark
+[@devmark](https://github.com/devmark)
