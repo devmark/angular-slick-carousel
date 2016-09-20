@@ -119,7 +119,8 @@ as shown in the example.
 ```
 
 ## Slide data 
-For change slide content, you have to set `ng-if` to destroy and init it
+For change slide content, you have to set `ng-if` to destroy and init it.
+$timeout is required to re-init slideshow to trigger digest cycle.
 
 - controller:
 ```js
@@ -129,8 +130,9 @@ For change slide content, you have to set `ng-if` to destroy and init it
         $scope.numberLoaded = false; // disable slick
         
         //number update
-        
-        $scope.numberLoaded = true; // enable slick
+        $timeout(function() { 
+          $scope.numberLoaded = true; // enable slick
+        });
     };
 ```
 - html:
