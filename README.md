@@ -6,7 +6,7 @@ angular-slick-carousel
 Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 
 
-## Summary 
+## Summary
 
 - [Usage](#usage)
 - [Attributes & Event](#attributes--event)
@@ -29,7 +29,7 @@ Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
 ```html
     <link rel="stylesheet" href="../bower_components/slick-carousel/slick/slick.css">
     <link rel="stylesheet" href="../bower_components/slick-carousel/slick/slick-theme.css">
-    
+
     <script src="../bower_components/jquery/jquery.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/slick-carousel/slick/slick.js"></script>
@@ -50,8 +50,8 @@ as either a `<div>` attribute or a `<slick>` element.
     <slick infinite=true slides-to-show=3 slides-to-scroll=3>
     ...
     </slick>
-    
-    <slick 
+
+    <slick
         settings="slickConfig" ng-if="numberLoaded">
     </slick>
 ```
@@ -66,7 +66,7 @@ as either a `<div>` attribute or a `<slick>` element.
 $scope.slickConfig = {
     enabled: true,
     autoplay: true,
-    draggable: false,  
+    draggable: false,
     autoplaySpeed: 3000,
     method: {},
     event: {
@@ -95,7 +95,7 @@ Slick can be easily switched on and off by using `enabled` settings flag.
 ```
 
 
-## Method 
+## Method
 1. All the functions in the plugin are exposed through a control
 attribute.
 2. To utilize this architecture, and have two-way data-binding,
@@ -118,7 +118,7 @@ as shown in the example.
 <button ng-click='slickConfig.method.slickPause()'>slickPause()</button>
 ```
 
-## Slide data 
+## Slide data
 For change slide content, you have to set `ng-if` to destroy and init it
 
 - controller:
@@ -127,9 +127,9 @@ For change slide content, you have to set `ng-if` to destroy and init it
     $scope.numberLoaded = true;
     $scope.numberUpdate = function(){
         $scope.numberLoaded = false; // disable slick
-        
+
         //number update
-        
+
         $scope.numberLoaded = true; // enable slick
     };
 ```
@@ -138,7 +138,7 @@ For change slide content, you have to set `ng-if` to destroy and init it
     <script type="text/ng-template" id="tpl.html">
         <h3>{{ i.label }}</h3>
     </script>
-    
+
     <slick ng-if="numberLoaded">
         <div ng-repeat="i in number">
             <div class="" ng-include="'tpl.html'"></div>
@@ -146,7 +146,7 @@ For change slide content, you have to set `ng-if` to destroy and init it
     </slick>
 ```
 
-## Global config 
+## Global config
   ```js
     config(['slickCarouselConfig', function (slickCarouselConfig) {
         slickCarouselConfig.dots = true;
@@ -154,9 +154,9 @@ For change slide content, you have to set `ng-if` to destroy and init it
     }])
   ```
 
-## FAQ 
+## FAQ
 Q: After change data, could i keep the current slide index?
-A: For this directive, this will destroy and init slick when updating data. You could get current index by event. 
+A: For this directive, this will destroy and init slick when updating data. You could get current index by event.
 example:
 ```js
     $scope.currentIndex = 0;
@@ -174,20 +174,15 @@ example:
 
 ## Examples
 
-You need be running a server to see the samples:
-
-Go to your terminal and run: 
+Now to run the samples in your local machine you just need to run:
 
 ```sh
-python -m SimpleHTTPServer
-
-```
-after this command you will be loading a python Server in you local machine in most the cases loads in the port 8000, you will be able to see the port when the server starts like that: 
-```sh 
-Serving HTTP on 0.0.0.0 port 8000 ...
+grunt serve
 ```
 
-so you can see the samples with this adress: http://localhost:8000/examples/#/
+so you will start a web server on http://localhost:8000
+
+now acess the folder examples: http://localhost:8000/examples/#/
 
 
 ## Creator
