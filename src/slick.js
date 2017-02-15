@@ -58,6 +58,7 @@ angular
           variableWidth: '@',
           vertical: '@',
           verticalSwiping: '@',
+          verticalScrolling: '@',
           rtl: '@'
         },
         restrict: 'AE',
@@ -112,6 +113,7 @@ angular
               useCSS: scope.useCSS !== 'false',
               variableWidth: scope.variableWidth === 'true',
               vertical: scope.vertical === 'true',
+              verticalScrolling: scope.verticalScrolling === 'true',
               verticalSwiping: scope.verticalSwiping === 'true',
               rtl: scope.rtl === 'true'
             }, scope.settings);
