@@ -1,5 +1,5 @@
 {
-  "name": "angular-slick-carousel-cjs-amd",
+  "name": "angular-slick-carousel",
   "version": "3.1.7",
   "main": "dist/angular-slick.js",
   "repository": {
