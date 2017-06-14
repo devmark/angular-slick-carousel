@@ -1,6 +1,9 @@
 angular-slick-carousel
 ======================
 
+angular 2 above take a look https://github.com/devmark/ngx-slick
+
+
 [![Join the chat at https://gitter.im/devmark/angular-slick-carousel](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/devmark/angular-slick-carousel?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Angular directive for [slick-carousel](http://kenwheeler.github.io/slick/)
