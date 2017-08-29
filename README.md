@@ -167,7 +167,7 @@ example:
         event: {
             afterChange: function (event, slick, currentSlide, nextSlide) {
               $scope.currentIndex = currentSlide; // save current index each time
-            }
+            },
             init: function (event, slick) {
               slick.slickGoTo($scope.currentIndex); // slide to correct index when init
             }
