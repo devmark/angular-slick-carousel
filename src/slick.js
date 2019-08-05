@@ -119,7 +119,7 @@ angular
           };
 
           destroy = function () {
-            var slickness = angular.element(element);
+            var slickness = $(element);
             if (slickness.hasClass('slick-initialized')) {
               slickness.remove('slick-list');
               slickness.slick('unslick');
@@ -131,7 +131,7 @@ angular
           init = function () {
             initOptions();
 
-            var slickness = angular.element(element);
+            var slickness = $(element);
 
             if (angular.element(element).hasClass('slick-initialized')) {
               if (options.enabled) {
