@@ -119,7 +119,7 @@ angular
           };
 
           destroy = function () {
-            var slickness = angular.element(element);
+            var slickness = $(element);
             if (slickness.hasClass('slick-initialized')) {
               slickness.remove('slick-list');
               slickness.slick('unslick');
